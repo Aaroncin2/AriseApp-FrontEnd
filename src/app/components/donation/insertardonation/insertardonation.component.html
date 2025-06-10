@@ -1,0 +1,27 @@
+<div>
+  <div><h1>Registro de Donacione</h1></div>
+  <div>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <div>
+        <mat-form-field>
+          <mat-label>Donacion</mat-label>
+          <input matInput formControlName="nameDonation" />
+          <mat-error *ngIf="form.get('nameDonation')?.hasError('required')">
+            El nombre es obligatorio!!
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>A donar</mat-label>
+          <input matInput formControlName="donation" />
+          <mat-error *ngIf="form.get('donation')?.hasError('required')">
+            El nombre es obligatorio!!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <button matButton="elevated">Registrar</button>
+    </form>
+  </div>
+</div>
