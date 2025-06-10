@@ -9,5 +9,5 @@ import { ActivatedRoute, RouterOutlet } from '@angular/router';
   styleUrl: './donation.component.css'
 })
 export class DonationComponent {
-constructor(private route: ActivatedRoute) { }
+constructor(public route: ActivatedRoute) { }
 }
