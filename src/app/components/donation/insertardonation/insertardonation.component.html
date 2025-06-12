@@ -1,6 +1,6 @@
-<div>
-  <div><h1>Registro de Donacione</h1></div>
-  <div>
+<div class="container">
+  <div style="text-align: center;margin: 5%;"><h1>Registro de Donaciones</h1></div>
+  <div style="text-align: center;margin: 5%;">
     <form [formGroup]="form" (submit)="aceptar()">
       <div>
         <mat-form-field>
@@ -19,8 +19,7 @@
             El nombre es obligatorio!!
           </mat-error>
         </mat-form-field>
-      </div>
-
+      </div>  
       <button matButton="elevated">Registrar</button>
     </form>
   </div>

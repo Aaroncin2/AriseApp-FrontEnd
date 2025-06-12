@@ -1,0 +1,16 @@
+<div>
+    <div><h1>Registrar Reward</h1></div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <div>
+                <mat-form-field>
+                    <mat-label>Nombre del Reward</mat-label>
+                    <input matInput formControlName="nameReward" />
+                    <mat-error *ngIf="form.get('nameReward')?.hasError('required')">
+                        El nombre es obligatorio!!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <button matButton="elevated">Registrar</button>
+        </form>
+</div>

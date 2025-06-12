@@ -23,4 +23,10 @@ export class DonationService {
   setList(listaNueva: Donation[]) {
     this.listaCambio.next(listaNueva);
   }
+  listId(id:number){
+    return this.http.get<Donation>(`${this.url}/${id}`);
+  }
+  update(d: Donation) {
+    return this.http.put(this.url, d);
+  }
 }
