@@ -1,22 +1,32 @@
 <div class="container">
-  <div style="text-align: center;margin: 5%;"><h1>Registro de Donaciones</h1></div>
+  <div style="text-align: center;margin: 5%;">
+    <h1>Registro de Donaciones</h1>
+  </div>
   <div style="text-align: center;margin: 5%;">
     <form [formGroup]="form" (submit)="aceptar()">
+      
+        <mat-form-field *ngIf="edicion">
+          <mat-label>Codigo</mat-label>
+          <input matInput formControlName="codigo" />
+          <mat-error *ngIf="form.get('idDonation')?.hasError('required')">
+            El codigo es obligatorio!!
+          </mat-error>
+        </mat-form-field>
       <div>
         <mat-form-field>
-          <mat-label>Donacion</mat-label>
+          <mat-label>Denominacion</mat-label>
           <input matInput formControlName="nameDonation" />
           <mat-error *ngIf="form.get('nameDonation')?.hasError('required')">
-            El nombre es obligatorio!!
+            La Denominacion es obligatorio!!
           </mat-error>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
-          <mat-label>A donar</mat-label>
+          <mat-label>Cantidad</mat-label>
           <input matInput formControlName="donation" />
           <mat-error *ngIf="form.get('donation')?.hasError('required')">
-            El nombre es obligatorio!!
+            La Cantidad es obligatorio!!
           </mat-error>
         </mat-form-field>
       </div>  

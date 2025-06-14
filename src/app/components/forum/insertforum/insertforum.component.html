@@ -1,7 +1,15 @@
 <div>
-    <div><h1>Registro de Forums</h1></div>
-    <div>
-        <form [formGroup]="form" (submit)="aceptar()">
+  <div><h1>Registro de Forums</h1></div>
+  <div>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput formControlName="codigo" />
+        <mat-error *ngIf="form.get('idForum')?.hasError('required')">
+          El codigo es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+
       <div>
         <mat-form-field>
           <mat-label>Nombre de Foro</mat-label>
@@ -11,7 +19,7 @@
           </mat-error>
         </mat-form-field>
       </div>
-       <br />
+
       <mat-form-field>
         <mat-label>Escoger un día</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="dateForum" />
@@ -25,7 +33,6 @@
           La fecha es obligatoria!!
         </mat-error>
       </mat-form-field>
-      <br />
       <div>
         <mat-form-field>
           <mat-label>Contenido o descripcion</mat-label>
@@ -37,5 +44,5 @@
       </div>
       <button matButton="elevated">Registrar</button>
     </form>
-    </div>
+  </div>
 </div>

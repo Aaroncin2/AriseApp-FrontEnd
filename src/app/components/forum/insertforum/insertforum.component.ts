@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
+  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
@@ -34,15 +35,24 @@ import { ForumService } from '../../../services/forum.service';
 export class InsertforumComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   forum: Forum = new Forum();
+  id: number = 0;
+  edicion: boolean = false;
 
   constructor(
     private fS: ForumService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe((data: Params) => {
+      this.id = data['id'];
+      this.edicion = data['id'] != null;
+      this.init();
+    });
     this.form = this.formBuilder.group({
+      codigo:[''],
       nameForum: ['', Validators.required],
       contentForum: ['', Validators.required],
       dateForum: ['', Validators.required],
@@ -50,15 +60,38 @@ export class InsertforumComponent implements OnInit {
   }
   aceptar() {
     if (this.form.valid) {
+      this.forum.idForum = this.form.value.codigo;
       this.forum.nameForum = this.form.value.nameForum;
       this.forum.contentForum = this.form.value.contentForum;
       this.forum.dateForum = this.form.value.dateForum;
-      this.fS.insert(this.forum).subscribe(() => {
-        this.fS.list().subscribe((data) => {
-          this.fS.setList(data);
+      if (this.edicion) {
+        //actualizar
+        this.fS.insert(this.forum).subscribe(() => {
+          this.fS.list().subscribe((data) => {
+            this.fS.setList(data);
+          });
+        });
+      } else {
+        // Insertar
+        this.fS.insert(this.forum).subscribe(() => {
+          this.fS.list().subscribe((data) => {
+            this.fS.setList(data);
+          });
+        });
+      }
+      this.router.navigate(['forums']);
+    }
+  }
+  init() {
+    if (this.edicion) {
+      this.fS.listId(this.id).subscribe((data) => {
+        this.form = new FormGroup({
+          codigo: new FormControl(data.idForum),
+          nameForum: new FormControl(data.nameForum),
+          contentForum: new FormControl(data.contentForum),
+          dateForum: new FormControl(data.dateForum),
         });
       });
-      this.router.navigate(['forums']);
     }
   }
 }

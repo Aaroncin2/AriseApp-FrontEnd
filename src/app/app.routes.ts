@@ -15,6 +15,9 @@ export const routes: Routes = [
         path: 'nuevo',
         component: InsertardonationComponent,
       },
+      {
+        path: 'ediciones/:id',component: InsertardonationComponent
+      }
     ],
   },
   {
@@ -24,6 +27,9 @@ export const routes: Routes = [
       {
         path:'nuevo',
         component: InsertforumComponent
+      },
+      {
+        path: 'ediciones/:id', component: InsertforumComponent
       }
     ]
   },

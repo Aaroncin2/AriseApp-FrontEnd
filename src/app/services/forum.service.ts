@@ -19,9 +19,18 @@ export class ForumService {
     return this.http.post(this.url, f);
   }
   getList() {
-    return this.listaCambio.asObservable;
+    return this.listaCambio.asObservable();
   }
   setList(listaNueva: Forum[]) {
     this.listaCambio.next(listaNueva);
+  }
+  listId(id: number) {
+    return this.http.get<Forum>(`${this.url}/${id}`);
+  }
+  update(f: Forum) {
+    return this.http.put(this.url, f);
+  }
+  deleteF(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
   }
 }

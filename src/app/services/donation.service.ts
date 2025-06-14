@@ -18,7 +18,7 @@ export class DonationService {
     return this.http.post(this.url, d)
   }
   getList(){
-    return this.listaCambio.asObservable
+    return this.listaCambio.asObservable()
   }
   setList(listaNueva: Donation[]) {
     this.listaCambio.next(listaNueva);
@@ -28,5 +28,8 @@ export class DonationService {
   }
   update(d: Donation) {
     return this.http.put(this.url, d);
+  }
+  deleteD(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
   }
 }
