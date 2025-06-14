@@ -19,9 +19,18 @@ export class RewardService {
       return this.http.post(this.url, r);
     }
     getList() {
-      return this.listaCambio.asObservable;
+      return this.listaCambio.asObservable();
     }
     setList(listaNueva: Reward[]) {
       this.listaCambio.next(listaNueva);
+    }
+    listId(id: number) {
+      return this.http.get<Reward>(`${this.url}/${id}`);
+    }
+    update(r: Reward) {
+      return this.http.put(this.url, r);
+    }
+    deleteR(id: number) {
+      return this.http.delete(`${this.url}/${id}`);
     }
 }

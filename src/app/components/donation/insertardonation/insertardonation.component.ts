@@ -44,7 +44,6 @@ export class InsertardonationComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
@@ -58,30 +57,28 @@ export class InsertardonationComponent implements OnInit {
     });
   }
 
-  aceptar() { 
+  aceptar() {
     if (this.form.valid) {
       this.donation1.idDonation = this.form.value.codigo;
       this.donation1.nameDonation = this.form.value.nameDonation;
       this.donation1.donation = this.form.value.donation;
-    if(this.edicion){
-      //actualizar
-      this.dS.update(this.donation1).subscribe(() => {
-        this.dS.list().subscribe((data) => {
-          this.dS.setList(data);
+      if (this.edicion) {
+        //actualizar
+        this.dS.update(this.donation1).subscribe(() => {
+          this.dS.list().subscribe((data) => {
+            this.dS.setList(data);
+          });
         });
-      });
-    }else{
-      //insertar
-      this.dS.insert(this.donation1).subscribe(() => {
-        this.dS.list().subscribe((data) => {
-          this.dS.setList(data);
+      } else {
+        //insertar
+        this.dS.insert(this.donation1).subscribe(() => {
+          this.dS.list().subscribe((data) => {
+            this.dS.setList(data);
+          });
         });
-      });
+      }
       this.router.navigate(['donations']);
     }
-  
-    }
-    
   }
   init() {
     if (this.edicion) {
