@@ -1,28 +1,42 @@
 <div>
-    <div>
-        <h1>Lista de Reward</h1>
-    </div>
+  <div>
+    <h1>Lista de Reward</h1>
+  </div>
 </div>
 <div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-  <!--- Note that these columns can be defined in any order.
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="idReward">
-    <th mat-header-cell *matHeaderCellDef> idReward </th>
-    <td mat-cell *matCellDef="let element"> {{element.idReward}} </td>
-  </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="idReward">
+      <th mat-header-cell *matHeaderCellDef>idReward</th>
+      <td mat-cell *matCellDef="let element">{{ element.idReward }}</td>
+    </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="nameReward">
-    <th mat-header-cell *matHeaderCellDef> nameReward </th>
-    <td mat-cell *matCellDef="let element"> {{element.nameReward}} </td>
-  </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="nameReward">
+      <th mat-header-cell *matHeaderCellDef>nameReward</th>
+      <td mat-cell *matCellDef="let element">{{ element.nameReward }}</td>
+    </ng-container>
 
-   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
- </table>
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+      <td mat-cell *matCellDef="let element">
+        <button matButton [routerLink]="['ediciones', element.idReward]">
+          Actualizar
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+      <td mat-cell *matCellDef="let element">
+        <button matButton (click)="eliminar(element.idReward)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 </div>

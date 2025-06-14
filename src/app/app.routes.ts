@@ -40,6 +40,9 @@ export const routes: Routes = [
       {
         path:'nuevo',
         component: InsertrewardComponent
+      },
+      {
+        path: 'ediciones/:id', component: InsertrewardComponent
       }
     ]
   }
