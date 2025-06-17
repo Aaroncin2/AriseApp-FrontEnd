@@ -5,6 +5,9 @@ import { ForumComponent } from './components/forum/forum.component';
 import { InsertforumComponent } from './components/forum/insertforum/insertforum.component';
 import { RewardComponent } from './components/reward/reward.component';
 import { InsertrewardComponent } from './components/reward/insertreward/insertreward.component';
+import { Users } from './models/users';
+import { UsersComponent } from './components/users/users.component';
+import { InsertusersComponent } from './components/users/insertusers/insertusers.component';
 
 export const routes: Routes = [
   {
@@ -43,6 +46,19 @@ export const routes: Routes = [
       },
       {
         path: 'ediciones/:id', component: InsertrewardComponent
+      }
+    ]
+  },
+  {
+    path:'users',
+    component: UsersComponent,
+    children:[
+      {
+        path:'nuevo',
+        component: InsertusersComponent
+      },
+      {
+        path: 'ediciones/:id', component: InsertusersComponent
       }
     ]
   }
