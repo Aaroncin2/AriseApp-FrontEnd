@@ -1,0 +1,54 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%">
+    <h1>Registrar User</h1>
+  </div>
+  <div style="text-align: center; margin: 5%">
+    <form [formGroup]="form" (submit)="aceptar()">
+      <div>
+        <mat-form-field *ngIf="edicion">
+          <mat-label>Codigo</mat-label>
+          <input matInput formControlName="codigo" />
+          <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+            El codigo es obligatorio!!
+          </mat-error>
+        </mat-form-field>
+        <div>
+        <mat-form-field>
+          <mat-label>Nombre del User</mat-label>
+          <input matInput formControlName="username" />
+          <mat-error *ngIf="form.get('username')?.hasError('required')">
+            El user es obligatorio!!
+          </mat-error>
+        </mat-form-field>
+        </div>
+        <mat-form-field>
+          <mat-label>email</mat-label>
+          <input matInput formControlName="email" />
+          <mat-error *ngIf="form.get('email')?.hasError('required')">
+            El email es obligatorio!!
+          </mat-error>
+        </mat-form-field>
+        <div>
+        </div>
+        <mat-form-field>
+          <mat-label>password</mat-label>
+          <input matInput formControlName="password" />
+          <mat-error *ngIf="form.get('password')?.hasError('required')">
+            El password es obligatorio!!
+          </mat-error>
+        </mat-form-field>
+        <div> 
+        <label>Estado</label>
+        <mat-radio-group formControlName="enabled" [(ngModel)]="Estado">
+          <mat-radio-button [value]="true">Activo</mat-radio-button>
+          <mat-radio-button [value]="false">Inactivo</mat-radio-button>
+          <mat-error *ngIf="form.get('enabled')?.hasError('required')">
+            El estado es obligatorio!!
+          </mat-error>
+        </mat-radio-group>
+      </div>
+      </div>
+      <button matButton="elevated">Registrar</button>
+    </form>
+  </div>
+</div>
