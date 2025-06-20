@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ListarusersComponent implements OnInit{
   dataSource: MatTableDataSource<Users>= new MatTableDataSource()
-  displayedColumns:String[]=['idUser', 'username', 'Estado', 'email', 'Rol','Update','Delete']
+  displayedColumns:String[]=['idUser', 'username', 'Estado', 'email','Update','Delete']
   constructor(private uS:UsersService){}
 
   ngOnInit(): void {

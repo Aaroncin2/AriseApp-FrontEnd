@@ -7,7 +7,7 @@ import { UsersComponent } from './components/users/users.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RewardComponent, DonationComponent, ForumComponent,UsersComponent],
+  imports: [RewardComponent, DonationComponent, ForumComponent,UsersComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
