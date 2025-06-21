@@ -5,7 +5,6 @@ import { ForumComponent } from './components/forum/forum.component';
 import { InsertforumComponent } from './components/forum/insertforum/insertforum.component';
 import { RewardComponent } from './components/reward/reward.component';
 import { InsertrewardComponent } from './components/reward/insertreward/insertreward.component';
-import { Users } from './models/users';
 import { UsersComponent } from './components/users/users.component';
 import { InsertusersComponent } from './components/users/insertusers/insertusers.component';
 
@@ -19,47 +18,51 @@ export const routes: Routes = [
         component: InsertardonationComponent,
       },
       {
-        path: 'ediciones/:id',component: InsertardonationComponent
-      }
+        path: 'ediciones/:id',
+        component: InsertardonationComponent,
+      },
     ],
   },
   {
-    path:'forums',
+    path: 'forums',
     component: ForumComponent,
-    children:[
+    children: [
       {
-        path:'nuevo',
-        component: InsertforumComponent
+        path: 'nuevo',
+        component: InsertforumComponent,
       },
       {
-        path: 'ediciones/:id', component: InsertforumComponent
-      }
-    ]
+        path: 'ediciones/:id',
+        component: InsertforumComponent,
+      },
+    ],
   },
   {
-    path:'rewards',
+    path: 'rewards',
     component: RewardComponent,
-    children:[
+    children: [
       {
-        path:'nuevo',
-        component: InsertrewardComponent
+        path: 'nuevo',
+        component: InsertrewardComponent,
       },
       {
-        path: 'ediciones/:id', component: InsertrewardComponent
-      }
-    ]
+        path: 'ediciones/:id',
+        component: InsertrewardComponent,
+      },
+    ],
   },
   {
-    path:'users',
+    path: 'users',
     component: UsersComponent,
-    children:[
+    children: [
       {
-        path:'nuevo',
-        component: InsertusersComponent
+        path: 'nuevo',
+        component: InsertusersComponent,
       },
       {
-        path: 'ediciones/:id', component: InsertusersComponent
-      }
-    ]
-  }
+        path: 'ediciones/:id',
+        component: InsertusersComponent,
+      },
+    ],
+  },
 ];

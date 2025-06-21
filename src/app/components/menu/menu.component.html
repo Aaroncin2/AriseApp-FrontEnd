@@ -1,0 +1,42 @@
+<mat-toolbar class="custom-toolbar">
+  <div>
+    <button mat-button [matMenuTriggerFor]="menuForum" class="btn-rojo">
+      <mat-icon>forum</mat-icon>
+      Foros
+    </button>
+  </div>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menuDonation" class="btn-rojo">
+      <mat-icon>money</mat-icon>
+      Donaciones
+    </button>
+  </div>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menuUser" class="btn-rojo">
+      <mat-icon>person</mat-icon>
+      Usuarios
+    </button>
+  </div>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menuReward" class="btn-rojo">
+      <mat-icon>star</mat-icon>
+      Recompensas
+    </button>
+  </div>
+</mat-toolbar>
+<mat-menu #menuForum="matMenu">
+  <button mat-menu-item routerLink="/forums">Listar</button>
+  <button mat-menu-item routerLink="/forums/nuevo">Registrar</button>
+</mat-menu>
+<mat-menu #menuDonation="matMenu">
+  <button mat-menu-item routerLink="/donations">Listar</button>
+  <button mat-menu-item routerLink="/donations/nuevo">Registrar</button>
+</mat-menu>
+<mat-menu #menuUser="matMenu">
+  <button mat-menu-item routerLink="/users">Listar</button>
+  <button mat-menu-item routerLink="/users/nuevo">Registrar</button>
+</mat-menu>
+<mat-menu #menuReward="matMenu">
+  <button mat-menu-item routerLink="/rewards">Listar</button>
+  <button mat-menu-item routerLink="/rewards/nuevo">Registrar</button>
+</mat-menu>
