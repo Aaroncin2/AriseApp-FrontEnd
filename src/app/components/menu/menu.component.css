@@ -1,0 +1,22 @@
+.custom-toolbar {
+	background-color: #005a1cd0;
+   }
+   
+   
+   
+   .btn-rojo {   
+	background-color: #005a1cd0;
+    border-radius: 4px;   
+    margin: 4px;   
+    border: none;
+      }
+   
+   
+   .btn-rojo mat-icon {   
+    color: white;   
+   }    
+   
+   .custom-toolbar button,   
+   .custom-toolbar mat-icon {   
+    color: white;   
+   }
