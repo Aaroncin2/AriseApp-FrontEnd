@@ -26,16 +26,16 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     MatButtonModule,
     MatRadioModule,
-    ],
+  ],
   templateUrl: './insertusers.component.html',
-  styleUrl: './insertusers.component.css'
+  styleUrl: './insertusers.component.css',
 })
 export class InsertusersComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   user: Users = new Users();
   id: number = 0;
   Estado: boolean = true;
-  edicion:boolean=true;
+  edicion: boolean = true;
 
   constructor(
     private uS: UsersService,
@@ -53,8 +53,8 @@ export class InsertusersComponent implements OnInit {
     this.form = this.formBuilder.group({
       codigo: [''],
       username: ['', Validators.required],
-      email:['', Validators.required],
-      password:['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
       enabled: ['', Validators.required],
     });
   }
@@ -62,9 +62,10 @@ export class InsertusersComponent implements OnInit {
     if (this.form.valid) {
       this.user.idUser = this.form.value.codigo;
       this.user.username = this.form.value.username;
-      this.user.email= this.form.value.email;
-      this.user.password=this.form.value.password;
-      this.user.enabled=this.form.value.enabled;
+      this.user.email = this.form.value.email;
+      this.user.password = this.form.value.password;
+      this.user.enabled = this.form.value.enabled;
+      this.user.roles = [];
 
       if (this.edicion) {
         //actualizar
@@ -91,7 +92,7 @@ export class InsertusersComponent implements OnInit {
         username: new FormControl(data.username),
         password: new FormControl(''),
         email: new FormControl(data.email),
-        enabled: new FormControl(data.enabled)
+        enabled: new FormControl(data.enabled),
       });
     });
   }

@@ -66,7 +66,7 @@ export class InsertforumComponent implements OnInit {
       this.forum.dateForum = this.form.value.dateForum;
       if (this.edicion) {
         //actualizar
-        this.fS.insert(this.forum).subscribe(() => {
+        this.fS.update(this.forum).subscribe(() => {
           this.fS.list().subscribe((data) => {
             this.fS.setList(data);
           });
