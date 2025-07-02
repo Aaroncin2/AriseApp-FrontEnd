@@ -16,6 +16,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+
 @Component({
   selector: 'app-insertardonation',
   providers: [provideNativeDateAdapter()],
@@ -33,7 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
 })
 export class InsertardonationComponent implements OnInit {
   form: FormGroup = new FormGroup({});
-  donation1: Donation = new Donation();
+  donation: Donation = new Donation();
   id: number = 0;
   edicion: boolean = false;
 
@@ -59,19 +60,19 @@ export class InsertardonationComponent implements OnInit {
 
   aceptar() {
     if (this.form.valid) {
-      this.donation1.idDonation = this.form.value.codigo;
-      this.donation1.nameDonation = this.form.value.nameDonation;
-      this.donation1.donation = this.form.value.donation;
+      this.donation.idDonation = this.form.value.codigo;
+      this.donation.nameDonation = this.form.value.nameDonation;
+      this.donation.donation = this.form.value.donation;
       if (this.edicion) {
         //actualizar
-        this.dS.update(this.donation1).subscribe(() => {
+        this.dS.update(this.donation).subscribe(() => {
           this.dS.list().subscribe((data) => {
             this.dS.setList(data);
           });
         });
       } else {
         //insertar
-        this.dS.insert(this.donation1).subscribe(() => {
+        this.dS.insert(this.donation).subscribe(() => {
           this.dS.list().subscribe((data) => {
             this.dS.setList(data);
           });

@@ -2,11 +2,18 @@
   <div style="text-align: center; margin: 5%">
     <h1>Lista de Forums</h1>
   </div>
+  <div class="input-container">
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Input</mat-label>
+      <input matInput formControlName="parametro" />
+    </mat-form-field>
+  </form>
+</div>
   <div style="text-align: center; margin: 5%">
+    <div class="table-scroll-container">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
+      
       <!-- Position Column -->
       <ng-container matColumnDef="idForum">
         <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -52,5 +59,22 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+
+    <div class="paginator-container">
+             <mat-paginator
+            [pageSize]="8"
+            [pageSizeOptions]="[4, 8, 10]"
+            [length]="100"
+            aria-label="Select page">
+          </mat-paginator>
+        </div>
+        </div>
   </div>
 </div>
+
+
+
+
+
+
+
