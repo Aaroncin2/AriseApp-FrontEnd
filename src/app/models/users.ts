@@ -3,9 +3,9 @@ import { Role} from "./role";
 export class Users {
     idUser: number=0;
     username:string="";
-    email:string='';
-    password: String='';
+    password: string='';
     enabled:boolean=true;
+    email:string='';
     roles:Role[] = [];
 
     constructor() {

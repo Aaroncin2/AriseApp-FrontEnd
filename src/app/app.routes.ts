@@ -7,6 +7,8 @@ import { RewardComponent } from './components/reward/reward.component';
 import { InsertrewardComponent } from './components/reward/insertreward/insertreward.component';
 import { UsersComponent } from './components/users/users.component';
 import { InsertusersComponent } from './components/users/insertusers/insertusers.component';
+import { RolesComponent } from './components/roles/roles.component';
+import { InsertarrolesComponent } from './components/roles/insertarroles/insertarroles.component';
 
 export const routes: Routes = [
   {
@@ -64,5 +66,19 @@ export const routes: Routes = [
         component: InsertusersComponent,
       },
     ],
+  },
+  {
+    path: 'rols',
+    component: RolesComponent,
+    children:[
+      {
+        path: 'nuevo',
+        component: InsertarrolesComponent,
+      },
+      {
+        path:'ediciones/:id', 
+        component:InsertarrolesComponent
+      }
+    ]
   },
 ];
