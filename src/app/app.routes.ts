@@ -9,8 +9,28 @@ import { UsersComponent } from './components/users/users.component';
 import { InsertusersComponent } from './components/users/insertusers/insertusers.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { InsertarrolesComponent } from './components/roles/insertarroles/insertarroles.component';
+import { MissionComponent } from './components/mission/mission.component';
+import { InsertarmissionComponent } from './components/mission/insertarmission/insertarmission.component';
+import { MissionrewardComponent } from './components/missionreward/missionreward.component';
+import { InsertarmissionrewardComponent } from './components/missionreward/insertarmissionreward/insertarmissionreward.component';
+import { TypedonationsComponent } from './components/typedonations/typedonations.component';
+import { InsertartypedonationsComponent } from './components/typedonations/insertartypedonations/insertartypedonations.component';
 
 export const routes: Routes = [
+  {
+    path: 'mission',
+    component: MissionComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: InsertarmissionComponent,
+      },
+      {
+        path: 'ediciones/:id',
+        component: InsertarmissionComponent,
+      },
+    ],
+  },
   {
     path: 'donations',
     component: DonationComponent,
@@ -80,5 +100,33 @@ export const routes: Routes = [
         component:InsertarrolesComponent
       }
     ]
+  },
+  {
+    path: 'missionreward',
+    component: MissionrewardComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: InsertarmissionrewardComponent,
+      },
+      {
+        path: 'ediciones/:id',
+        component: InsertarmissionrewardComponent,
+      },
+    ],
+  },
+  {
+    path: 'typedonations',
+    component: TypedonationsComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: InsertartypedonationsComponent,
+      },
+      {
+        path: 'ediciones/:id',
+        component: InsertartypedonationsComponent,
+      },
+    ],
   },
 ];

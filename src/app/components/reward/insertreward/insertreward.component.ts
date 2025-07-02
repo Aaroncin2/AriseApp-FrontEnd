@@ -77,6 +77,9 @@ export class InsertrewardComponent implements OnInit {
       this.router.navigate(['rewards']);
     }
   }
+  cancelar(){
+    this.router.navigate(['rewards']);
+  }
   init() {
     this.rS.listId(this.id).subscribe((data) => {
       this.form = new FormGroup({
