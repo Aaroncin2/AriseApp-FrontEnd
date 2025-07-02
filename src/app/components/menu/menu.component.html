@@ -23,6 +23,24 @@
       Recompensas
     </button>
   </div>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menuMission" class="btn-rojo">
+      <mat-icon>assignment</mat-icon>
+      Misiones
+    </button>
+  </div>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menuMissionReward" class="btn-rojo">
+      <mat-icon>dashboard</mat-icon>
+      Misiones Recompensas
+    </button>
+  </div>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menuTypeDonations" class="btn-rojo">
+      <mat-icon>clear_all</mat-icon>
+      Tipos de Donaciones
+    </button>
+  </div>
 </mat-toolbar>
 <mat-menu #menuForum="matMenu">
   <button mat-menu-item routerLink="/forums">Listar</button>
@@ -39,4 +57,16 @@
 <mat-menu #menuReward="matMenu">
   <button mat-menu-item routerLink="/rewards">Listar</button>
   <button mat-menu-item routerLink="/rewards/nuevo">Registrar</button>
+</mat-menu>
+<mat-menu #menuMission="matMenu">
+  <button mat-menu-item routerLink="/mission">Listar</button>
+  <button mat-menu-item routerLink="/mission/nuevo">Registrar</button>
+</mat-menu>
+<mat-menu #menuMissionReward="matMenu">
+  <button mat-menu-item routerLink="/missionreward">Listar</button>
+  <button mat-menu-item routerLink="/missionreward/nuevo">Registrar</button>
+</mat-menu>
+<mat-menu #menuTypeDonations="matMenu">
+  <button mat-menu-item routerLink="/typedonations">Listar</button>
+  <button mat-menu-item routerLink="/typedonations/nuevo">Registrar</button>
 </mat-menu>

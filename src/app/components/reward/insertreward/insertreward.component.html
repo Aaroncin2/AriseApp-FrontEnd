@@ -1,6 +1,6 @@
 <div class="container">
   <div style="text-align: center; margin: 5%">
-    <h1>Registrar Reward</h1>
+    <h1>Registrar Recompensas</h1>
   </div>
   <div style="text-align: center; margin: 5%">
     <form [formGroup]="form" (submit)="aceptar()">
@@ -21,6 +21,10 @@
         </mat-form-field>
       </div>
       <button matButton="elevated">Registrar</button>
+      <br />
+      <button mat-button color="elevated" type="button" (click)="cancelar()">
+        Cancelar
+    </button>
     </form>
   </div>
 </div>

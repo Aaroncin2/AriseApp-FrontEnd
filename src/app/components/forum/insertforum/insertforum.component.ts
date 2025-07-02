@@ -82,6 +82,9 @@ export class InsertforumComponent implements OnInit {
       this.router.navigate(['forums']);
     }
   }
+  cancelar(){
+    this.router.navigate(['forums']);
+  }
   init() {
     if (this.edicion) {
       this.fS.listId(this.id).subscribe((data) => {

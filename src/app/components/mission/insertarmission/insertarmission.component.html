@@ -1,0 +1,50 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%">
+    <h1>Registro de Mission</h1>
+  </div>
+  <div style="text-align: center; margin: 5%">
+    <form [formGroup]="form">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" />
+        <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+          El codigo es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre de Mision</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error *ngIf="form.get('nombre')?.hasError('required')">
+          El Nombre de la Mision es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+<br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripcion</mat-label>
+        <input matInput formControlName="descripcion" />
+        <mat-error *ngIf="form.get('descripcion')?.hasError('required')">
+          Descripcion es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+<br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre de usuario</mat-label>
+        <input matInput formControlName="username" />
+        <mat-error *ngIf="form.get('username')?.hasError('required')">
+          El Nombre es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <button mat-raised-button color="primary" (click)="aceptar()">
+        Registrar
+      </button>
+      <br />
+      <button mat-button color="elevated" type="button" (click)="cancelar()">
+        Cancelar
+    </button>
+    </form>
+  </div>
+</div>
