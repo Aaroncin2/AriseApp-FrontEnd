@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { enviroment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Users } from '../models/users';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { HU57DTO } from '../models/HU57DTO';
 const base_url = enviroment.base;
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,8 @@ export class UsersService {
       }
       deleteU(id: number) {
         return this.http.delete(`${this.url}/${id}`);
+      }
+      getHU57DTO():Observable<HU57DTO[]> {
+        return this.http.get<HU57DTO[]>(`${this.url}/HU57`);
       }
 }

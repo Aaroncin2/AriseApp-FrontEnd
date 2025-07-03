@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { enviroment } from '../../environments/environment';
 import { Forum } from '../models/forum';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { HU60DTO } from '../models/HU60DTO';
 const base_url = enviroment.base;
 @Injectable({
   providedIn: 'root',
@@ -32,5 +33,8 @@ export class ForumService {
   }
   deleteF(id: number) {
     return this.http.delete(`${this.url}/${id}`);
+  }
+  getHU60DTO(): Observable<HU60DTO[]> {
+    return this.http.get<HU60DTO[]>(`${this.url}/HU60`);
   }
 }

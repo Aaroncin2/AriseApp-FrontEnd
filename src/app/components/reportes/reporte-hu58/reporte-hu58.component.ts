@@ -31,12 +31,12 @@ export class ReporteHU58Component implements OnInit {
               data: [data[0].total_missions],
               label: 'Cantidad de Misiones',
               backgroundColor: [
-                '#FF0000', // Rojo intenso
-                '#FF4500', // Rojo estándar
-                '#FF6347', // Rojo oscuro
-                '#FF7F50', // Rojo claro
-                '#FF8C00', // Rojo suave
-                '#FFA07A', // Rojo medio
+                '#9CCC65', // Verde Musgo Claro
+              '#7CB342', // Verde Mate
+              '#558B2F', // Verde Militar
+              '#388E3C', // Verde Selva
+              '#2E7D32', // Verde Botella
+              '#1B5E20', // Verde Petróleo
               ],
               borderColor: 'rgba(173, 216, 230, 1)',
               borderWidth: 1,

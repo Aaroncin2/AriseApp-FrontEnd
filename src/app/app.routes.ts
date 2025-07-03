@@ -21,8 +21,19 @@ import { ReporteHU55Component } from './components/reportes/reporte-hu55/reporte
 import { ReporteHU58Component } from './components/reportes/reporte-hu58/reporte-hu58.component';
 import { ReporteHU56Component } from './components/reportes/reporte-hu56/reporte-hu56.component';
 import { ReporteHU57Component } from './components/reportes/reporte-hu57/reporte-hu57.component';
+import { ReporteHU60Component } from './components/reportes/reporte-hu60/reporte-hu60.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 export const routes: Routes = [
+  {
+    path: 'chatbot',
+    component:ChatbotComponent
+  },
+  {
+    path: 'inicio',
+    component: InicioComponent,
+  },
   {
     path: 'mission',
     component: MissionComponent,
@@ -159,6 +170,15 @@ export const routes: Routes = [
         path: 'hu58',
         component: ReporteHU58Component,
       },
+      {
+        path: 'hu57',
+        component: ReporteHU57Component,
+      },
+      {
+        path: 'hu60',
+        component: ReporteHU60Component,
+      }
     ],
+
   },
 ];
