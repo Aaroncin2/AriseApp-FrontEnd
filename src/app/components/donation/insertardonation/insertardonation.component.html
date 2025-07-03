@@ -1,39 +1,36 @@
-<div class="container">
-  <div style="text-align: center;margin: 5%;">
-    <h1>Registro de Donaciones</h1>
-  </div>
-  <div style="text-align: center;margin: 5%;">
+<div class="page-container">
+  <h1 class="title">Registro de Donaciones</h1>
+
+  <div class="form-container">
     <form [formGroup]="form" (submit)="aceptar()">
-        <mat-form-field *ngIf="edicion">
-          <mat-label>Codigo</mat-label>
-          <input matInput formControlName="codigo" />
-          <mat-error *ngIf="form.get('idDonation')?.hasError('required')">
-            El codigo es obligatorio!!
-          </mat-error>
-        </mat-form-field>
-      <div>
-        <mat-form-field>
-          <mat-label>Denominacion</mat-label>
-          <input matInput formControlName="nameDonation" />
-          <mat-error *ngIf="form.get('nameDonation')?.hasError('required')">
-            La Denominacion es obligatorio!!
-          </mat-error>
-        </mat-form-field>
+      <mat-form-field *ngIf="edicion" appearance="outline" class="form-field">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo" />
+        <mat-error *ngIf="form.get('idDonation')?.hasError('required')">
+          El código es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Denominación</mat-label>
+        <input matInput formControlName="nameDonation" />
+        <mat-error *ngIf="form.get('nameDonation')?.hasError('required')">
+          La denominación es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Cantidad</mat-label>
+        <input matInput formControlName="donation" />
+        <mat-error *ngIf="form.get('donation')?.hasError('required')">
+          La cantidad es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-group">
+        <button class="soft-btn green" type="submit">Registrar</button>
+        <button class="soft-btn gray" type="button" (click)="cancelar()">Cancelar</button>
       </div>
-      <div>
-        <mat-form-field>
-          <mat-label>Cantidad</mat-label>
-          <input matInput formControlName="donation" />
-          <mat-error *ngIf="form.get('donation')?.hasError('required')">
-            La Cantidad es obligatorio!!
-          </mat-error>
-        </mat-form-field>
-      </div>  
-      <button mat-button="elevated" (click)="aceptar()">Registrar</button>
-      <br />
-      <button mat-button color="elevated" type="button" (click)="cancelar()">
-        Cancelar
-    </button>
     </form>
   </div>
 </div>
