@@ -28,7 +28,6 @@ export class InsertarmissionComponent implements OnInit{
 
   form: FormGroup = new FormGroup({});
   miss: Mission = new Mission();
-
   id: number = 0;
   edicion: boolean = false;
 
@@ -40,7 +39,8 @@ export class InsertarmissionComponent implements OnInit{
     private mS: MissionService,
     private router:Router,
     private uS:UsersService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+
   ) {}
 
   ngOnInit(): void {
@@ -55,7 +55,7 @@ export class InsertarmissionComponent implements OnInit{
       codigo: [''],
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required],
-      username: ['', Validators.required],
+      usuario: ['', Validators.required],
     });
     this.uS.list().subscribe(data=>{
       this.listaUsuarios=data
@@ -67,7 +67,7 @@ export class InsertarmissionComponent implements OnInit{
       this.miss.idMission = this.form.value.codigo;
       this.miss.nameMission = this.form.value.nombre;
       this.miss.descriptionMission = this.form.value.descripcion;
-      this.miss.users.username=this.form.value.username
+      this.miss.users.idUser=this.form.value.usuario
       if (this.edicion) {
         //actualizar
         this.mS.update(this.miss).subscribe(() => {
@@ -97,7 +97,7 @@ export class InsertarmissionComponent implements OnInit{
           codigo: new FormControl(data.idMission),
           nombre: new FormControl(data.nameMission),
           descripcion: new FormControl(data.descriptionMission),
-          username: new FormControl(data.users.username),
+          usuario: new FormControl(data.users.idUser),
         });
       });
     }

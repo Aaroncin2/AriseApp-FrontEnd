@@ -18,11 +18,12 @@ private url = `${base_url}/missionRewards`;
   insert(mr: missionRewards) {
     return this.http.post(this.url, mr);
   }
-  getList() {
-    return this.listaCambio.asObservable();
-  }
+
   setList(listaNueva: missionRewards[]) {
     this.listaCambio.next(listaNueva);
+  }
+  getList() {
+    return this.listaCambio.asObservable();
   }
   listId(id: number) {
     return this.http.get<missionRewards>(`${this.url}/${id}`);

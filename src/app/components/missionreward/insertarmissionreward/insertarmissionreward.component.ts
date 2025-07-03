@@ -7,14 +7,21 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MissionService } from '../../../services/mission.service';
+import { RewardService } from '../../../services/reward.service';
+import { Reward } from '../../../models/reward';
+import { Mission } from '../../../models/mission';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-insertarmissionreward',
-  imports: [ReactiveFormsModule,
+  imports: [
+    ReactiveFormsModule,
     MatInputModule,
     CommonModule,
     MatButtonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
   ],
   templateUrl: './insertarmissionreward.component.html',
   styleUrl: './insertarmissionreward.component.css'
@@ -24,12 +31,15 @@ export class InsertarmissionrewardComponent  implements OnInit {
   missionrewards: missionRewards = new missionRewards();
   id: number = 0;
   edicion: boolean = false;
-
+  listaReward: Reward[] = [];
+  listaMission: Mission[] = []; 
   constructor(
     private mrS: MissionrewardService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private mis:MissionService,
+    private re: RewardService,
   ) {}
 
   ngOnInit(): void {
@@ -44,11 +54,17 @@ export class InsertarmissionrewardComponent  implements OnInit {
       mission: ['', Validators.required],
       reward: ['', Validators.required],
     });
+    this.mis.list().subscribe((data) => {
+      this.listaMission = data;
+    });
+    this.re.list().subscribe((data) => {
+      this.listaReward = data;
+    });
   }
   aceptar() {
     if (this.form.valid) {
-      this.missionrewards.idMission = this.form.value.codigo;
-      this.missionrewards.descripcion = this.form.value.description;
+      this.missionrewards.idMissionReward = this.form.value.codigo;
+      this.missionrewards.description = this.form.value.description;
       this.missionrewards.mission.idMission = this.form.value.mission;
       this.missionrewards.reward.idReward = this.form.value.reward;
       if (this.edicion) {
@@ -76,8 +92,8 @@ export class InsertarmissionrewardComponent  implements OnInit {
     if (this.edicion) {
       this.mrS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          codigo: new FormControl(data.idMission),
-          description: new FormControl(data.descripcion),
+          codigo: new FormControl(data.idMissionReward),
+          description: new FormControl(data.description),
           mission: new FormControl(data.mission.idMission),
           reward: new FormControl(data.reward.idReward),
         });
