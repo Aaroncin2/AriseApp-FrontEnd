@@ -1,102 +1,113 @@
-/* Estilos generales (compartidos) */
 .page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+  padding: 24px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .title {
-  font-size: 2rem;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
   color: #004d1a;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 30px;
 }
 
-.input-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
+/* Grid de tarjetas responsive */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
 }
 
-.search-field {
-  width: 320px;
-}
-
-.table-container {
-  width: 100%;
-  max-width: 1100px;
-  overflow-x: auto;
-}
-
-/* Estilos de tabla unificados */
-.mat-elevation-z8 {
-  width: 100%;
+/* Estilo individual para cada card */
+.forum-card {
+  background-color: #f9f9f9;
+  border-left: 6px solid #43a047; /* Verde vivo */
   border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.2s ease;
 }
 
-mat-header-cell.header-cell {
-  background-color: #005a1c;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 1rem;
+.forum-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-mat-cell.body-cell {
-  font-size: 0.95rem;
-  padding: 1rem;
-}
-
-mat-row:hover {
-  background-color: #f2fff1;
-  transition: background-color 0.2s ease-in-out;
-}
-
-button[mat-icon-button] {
-  background-color: #dfffe0;
-  border-radius: 6px;
-  padding: 0.3rem;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-button[mat-icon-button]:hover {
-  background-color: #b6fcb6;
-  transform: scale(1.1);
-}
-
-.badge {
-  padding: 0.3rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.badge.activo {
-  background-color: #c8facc;
-  color: #1e7d33;
-}
-
-.badge.inactivo {
-  background-color: #ffcdd2;
-  color: #b71c1c;
-}
-
-.paginator-container {
+/* Encabezado con título y fecha */
+.forum-header {
   display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-/* Estilo adicional para contenido largo en forum */
-.content-cell {
-  max-width: 400px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.forum-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #004d1a;
+  margin: 0;
+}
+
+.forum-date {
+  font-size: 14px;
+  color: #757575;
+}
+.forum-content {
+  font-size: 15px;
+  color: #424242;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+
+/* Publicado por */
+.forum-name {
+  font-size: 15px;
+  color: #424242;
+  margin: 10px 0;
+}
+
+/* Contenedor de acciones */
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* Botones redondos y estilizados */
+.action-button {
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button mat-icon {
+  font-size: 20px;
+}
+
+/* Botón de editar - Verde Medio */
+.action-button.edit {
+  background-color: #66BB6A;
+}
+
+.action-button.edit:hover {
+  background-color: #4CAF50;
+}
+
+/* Botón de eliminar - Verde Oscuro */
+.action-button.delete {
+  background-color: #2E7D32;
+}
+
+.action-button.delete:hover {
+  background-color: #1B5E20;
 }

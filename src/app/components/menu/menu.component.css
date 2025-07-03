@@ -1,36 +1,22 @@
 .custom-toolbar {
-  background-color: #005a1c;
-  padding: 0.5rem 1rem;
-  display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.btn-rojo {
-  background-color: #05752a;
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  border: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-rojo:hover {
-  background-color: #05a640;
-  transform: scale(1.05);
-}
-
-.btn-rojo mat-icon,
-.custom-toolbar mat-icon {
-  color: white;
-}
-
-.custom-toolbar button {
-  color: white;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
+	background-color: #005a1cd0;
+   }
+   
+   
+   
+   .btn-rojo {   
+	background-color: #005a1cd0;
+    border-radius: 4px;   
+    margin: 4px;   
+    border: none;
+      }
+   
+   
+   .btn-rojo mat-icon {   
+    color: white;   
+   }    
+   
+   .custom-toolbar button,   
+   .custom-toolbar mat-icon {   
+    color: white;   
+   }

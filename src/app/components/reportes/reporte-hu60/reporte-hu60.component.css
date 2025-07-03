@@ -1,0 +1,46 @@
+.card-container {
+  margin: 30px auto;
+  max-width: 1000px;
+  padding: 16px;
+}
+
+.titulo-reporte {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #004d1a;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border-left: 6px solid #004d1a;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card-username {
+  font-weight: bold;
+  color: #2e7d32;
+  margin: 0 0 6px;
+}
+
+.card-title {
+  font-size: 18px;
+  color: #004d1a;
+  margin: 4px 0;
+}
+
+.card-description {
+  font-size: 15px;
+  color: #424242;
+  margin-top: 10px;
+}

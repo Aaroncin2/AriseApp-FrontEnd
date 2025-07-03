@@ -10,7 +10,7 @@ import { MissionrewardService } from '../../../services/missionreward.service';
   selector: 'app-reporte-hu55',
   imports: [BaseChartDirective, MatIconModule, CommonModule],
   templateUrl: './reporte-hu55.component.html',
-  styleUrl: './reporte-hu55.component.css'
+  styleUrl: './reporte-hu55.component.css',
 })
 export class ReporteHU55Component implements OnInit {
   hasData = false;
@@ -21,7 +21,7 @@ export class ReporteHU55Component implements OnInit {
   barChartType: ChartType = 'line';
   barChartLegend = true;
   barChartData: ChartDataset[] = [];
-  constructor(private mS:MissionrewardService) {}
+  constructor(private mS: MissionrewardService) {}
   ngOnInit(): void {
     this.mS.getHU55DTO().subscribe((data) => {
       if (data.length > 0) {
@@ -32,12 +32,12 @@ export class ReporteHU55Component implements OnInit {
             data: data.map((item) => item.id_missions),
             label: 'Cantidad de Recompensas',
             backgroundColor: [
-              '#FF0000', // Rojo intenso
-              '#FF4500', // Rojo estándar
-              '#FF6347', // Rojo oscuro
-              '#FF7F50', // Rojo claro
-              '#FF8C00', // Rojo suave
-              '#FFA07A', // Rojo medio
+              '#9CCC65', // Verde Musgo Claro
+              '#7CB342', // Verde Mate
+              '#558B2F', // Verde Militar
+              '#388E3C', // Verde Selva
+              '#2E7D32', // Verde Botella
+              '#1B5E20', // Verde Petróleo
             ],
             borderColor: 'rgba(173, 216, 230, 1)',
             borderWidth: 1,

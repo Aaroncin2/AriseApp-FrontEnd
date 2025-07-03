@@ -18,7 +18,6 @@ import { CommonModule } from '@angular/common';
     CommonModule, 
     RouterLink, 
     MatIconModule, 
-    MatPaginator, 
     MatPaginatorModule, 
     MatFormFieldModule, 
     MatInputModule, 
@@ -50,30 +49,22 @@ export class ListarforumComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.forumService.list().subscribe(data => {
+    this.forumService.list().subscribe((data: Forum[]) => {
       this.dataSource = new MatTableDataSource(data);
-
-      // CONFIGURAR el paginador después de cargar los datos
-      setTimeout(() => {
-        this.dataSource.paginator = this.paginator
-    })
+    });
     this.forumService.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
     });
-  })
+  }
 
-  //Buscar por filtro
-    this.form.get('parametro')?.valueChanges.subscribe(value => {
-      this.dataSource.filter = value.trim().toLowerCase()
-    })
-
-}
-  eliminar(id: number) {
-    this.forumService.deleteF(id).subscribe((data) => {
-      this.forumService.list().subscribe((data) => {
-        this.forumService.setList(data);
-      });
+eliminar(id: number): void {
+    this.forumService.deleteF(id).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter(f => f.idForum !== id);
     });
   }
+
 }
+ 
+
+
 

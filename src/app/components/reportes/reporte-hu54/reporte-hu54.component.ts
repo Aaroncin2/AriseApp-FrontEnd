@@ -33,13 +33,12 @@ export class ReporteHU54Component implements OnInit {
             data: data.map((item) => item.cantidad),
             label: 'Cantidad de Donaciones',
             backgroundColor: [
-              '#00FF00', // Rojo intenso
-              '#32CD32', // Rojo estándar
-
-              '#228B22', // Rojo oscuro
-              '#808000', // Rojo claro
-              '#2E8B57', // Rojo suave
-              '#00FF7F', // Rojo medio
+              '#9CCC65', // Verde Musgo Claro
+              '#7CB342', // Verde Mate
+              '#558B2F', // Verde Militar
+              '#388E3C', // Verde Selva
+              '#2E7D32', // Verde Botella
+              '#1B5E20', // Verde Petróleo
             ],
             borderColor: 'rgba(173, 216, 230, 1)',
             borderWidth: 1,

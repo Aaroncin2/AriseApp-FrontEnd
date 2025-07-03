@@ -1,0 +1,77 @@
+.ia-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid #05752a;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.ia-container h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #005a1c;
+  text-align: center;
+}
+
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #cce3d2;
+  border-radius: 10px;
+  font-size: 16px;
+  resize: vertical;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #05a640;
+  box-shadow: 0 0 0 3px rgba(5, 166, 64, 0.2);
+}
+
+button {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #05752a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #05a640;
+  transform: scale(1.02);
+}
+
+button:disabled {
+  background-color: #a5d6b6;
+  cursor: not-allowed;
+}
+
+.respuesta {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f1fdf4;
+  border-left: 5px solid #05a640;
+  border-radius: 10px;
+}
+
+.respuesta h3 {
+  margin: 0 0 10px 0;
+  color: #05752a;
+}
+
+.respuesta p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
