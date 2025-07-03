@@ -1,5 +1,17 @@
 <mat-toolbar class="custom-toolbar">
   <div>
+    <button mat-button [matMenuTriggerFor]="menuUser" class="btn-rojo">
+      <mat-icon>person</mat-icon>
+      Usuarios
+    </button>
+  </div>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menuRol" class="btn-rojo">
+      <mat-icon>person</mat-icon>
+      Roles
+    </button>
+  </div>
+  <div>
     <button mat-button [matMenuTriggerFor]="menuForum" class="btn-rojo">
       <mat-icon>forum</mat-icon>
       Foros
@@ -9,12 +21,6 @@
     <button mat-button [matMenuTriggerFor]="menuDonation" class="btn-rojo">
       <mat-icon>money</mat-icon>
       Donaciones
-    </button>
-  </div>
-  <div>
-    <button mat-button [matMenuTriggerFor]="menuUser" class="btn-rojo">
-      <mat-icon>person</mat-icon>
-      Usuarios
     </button>
   </div>
   <div>
@@ -39,6 +45,12 @@
     <button mat-button [matMenuTriggerFor]="menuTypeDonations" class="btn-rojo">
       <mat-icon>clear_all</mat-icon>
       Tipos de Donaciones
+    </button>
+  </div>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menuReportes" class="btn-rojo">
+      <mat-icon>clear_all</mat-icon>
+      Reportes
     </button>
   </div>
 </mat-toolbar>
@@ -69,4 +81,15 @@
 <mat-menu #menuTypeDonations="matMenu">
   <button mat-menu-item routerLink="/typedonations">Listar</button>
   <button mat-menu-item routerLink="/typedonations/nuevo">Registrar</button>
+</mat-menu>
+<mat-menu #menuReportes="matMenu">
+  <button mat-menu-item routerLink="/reportes/hu54">Reporte HU54</button>
+  <button mat-menu-item routerLink="/reportes/hu55">Reporte HU55</button>
+  <button mat-menu-item routerLink="/reportes/hu56">Reporte HU56</button>
+  <button mat-menu-item routerLink="/reportes/hu57">Reporte HU57</button>
+  <button mat-menu-item routerLink="/reportes/hu58">Reporte HU58</button>
+</mat-menu>
+<mat-menu #menuRol="matMenu">
+  <button mat-menu-item routerLink="/rols">Listar</button>
+  <button mat-menu-item routerLink="/rols/nuevo">Registrar</button>
 </mat-menu>

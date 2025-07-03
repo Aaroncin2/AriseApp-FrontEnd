@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { enviroment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Mission } from '../models/mission';
+import { HU58DTO } from '../models/HU58DTO';
 
 const base_url = enviroment.base;
 @Injectable({
@@ -37,4 +38,7 @@ private url = `${base_url}/missions`;
   deleteM(id: number) {
     return this.http.delete(`${this.url}/${id}`);
   }
+  getHU58DTO(): Observable<HU58DTO[]> {
+      return this.http.get<HU58DTO[]>(`${this.url}/HU58`);
+    }
 }

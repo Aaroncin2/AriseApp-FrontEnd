@@ -15,6 +15,12 @@ import { MissionrewardComponent } from './components/missionreward/missionreward
 import { InsertarmissionrewardComponent } from './components/missionreward/insertarmissionreward/insertarmissionreward.component';
 import { TypedonationsComponent } from './components/typedonations/typedonations.component';
 import { InsertartypedonationsComponent } from './components/typedonations/insertartypedonations/insertartypedonations.component';
+import { ReportesComponent } from './components/reportes/reportes.component';
+import { ReporteHU54Component } from './components/reportes/reporte-hu54/reporte-hu54.component';
+import { ReporteHU55Component } from './components/reportes/reporte-hu55/reporte-hu55.component';
+import { ReporteHU58Component } from './components/reportes/reporte-hu58/reporte-hu58.component';
+import { ReporteHU56Component } from './components/reportes/reporte-hu56/reporte-hu56.component';
+import { ReporteHU57Component } from './components/reportes/reporte-hu57/reporte-hu57.component';
 
 export const routes: Routes = [
   {
@@ -90,16 +96,16 @@ export const routes: Routes = [
   {
     path: 'rols',
     component: RolesComponent,
-    children:[
+    children: [
       {
         path: 'nuevo',
         component: InsertarrolesComponent,
       },
       {
-        path:'ediciones/:id', 
-        component:InsertarrolesComponent
-      }
-    ]
+        path: 'ediciones/:id',
+        component: InsertarrolesComponent,
+      },
+    ],
   },
   {
     path: 'missionreward',
@@ -126,6 +132,32 @@ export const routes: Routes = [
       {
         path: 'ediciones/:id',
         component: InsertartypedonationsComponent,
+      },
+    ],
+  },
+  {
+    path: 'reportes',
+    component: ReportesComponent,
+    children: [
+      {
+        path: 'hu54',
+        component: ReporteHU54Component,
+      },
+      {
+        path: 'hu55',
+        component: ReporteHU55Component,
+      },
+      {
+        path: 'hu56',
+        component: ReporteHU56Component, 
+      },
+      {
+        path: 'hu57',
+        component: ReporteHU57Component, 
+      },
+      {
+        path: 'hu58',
+        component: ReporteHU58Component,
       },
     ],
   },

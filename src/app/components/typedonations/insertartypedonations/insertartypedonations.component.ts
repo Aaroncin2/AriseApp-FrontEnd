@@ -8,7 +8,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import { UsersService } from '../../../services/users.service';
 import { DonationService } from '../../../services/donation.service';
 import { Donation } from '../../../models/donations';
 
@@ -91,7 +90,7 @@ tipos: { value: string; viewValue: string }[] = [
         this.form = new FormGroup({
           codigo: new FormControl(data.idTypeDonation),
           typeDonation: new FormControl(data.typeDonation),
-          IdDonation: new FormControl(data.donation.idDonation),
+          IdDonation: new FormControl(data.donation.nameDonation),
         });
       });
     }
