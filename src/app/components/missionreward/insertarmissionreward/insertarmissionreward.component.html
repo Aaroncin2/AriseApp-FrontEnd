@@ -1,5 +1,5 @@
 <div class="container">
-  <div style="text-align: center;margin: 5%;"><h1>Registro de Descripcion</h1></div>
+  <div style="text-align: center;margin: 5%;"><h1>Registro de Mision y Recompensa</h1></div>
   <div style="text-align: center;margin: 5%;">
     <form [formGroup]="form" (submit)="aceptar()">
       <mat-form-field *ngIf="edicion">
@@ -17,6 +17,30 @@
             La Descripcion es obligatorio!!
           </mat-error>
         </mat-form-field>
+      </div>
+      <mat-form-field>
+        <mat-label>Seleccione mission</mat-label>
+        <mat-select formControlName="mission">
+          @for (api of listaMission; track api) {
+          <mat-option [value]="api.idMission">{{ api.nameMission }}</mat-option>
+          }
+        </mat-select>
+        <mat-error *ngIf="form.get('mission')?.hasError('required')">
+          La mission es obligatoria!!
+        </mat-error>
+      </mat-form-field>
+      <div>
+      <mat-form-field>
+        <mat-label>Seleccione reward</mat-label>
+        <mat-select formControlName="reward">
+          @for (api of listaReward; track api) {
+          <mat-option [value]="api.idReward">{{ api.nameReward }}</mat-option>
+          }
+        </mat-select>
+        <mat-error *ngIf="form.get('reward')?.hasError('required')">
+          El reward es obligatorio!!
+        </mat-error>
+      </mat-form-field>
       </div>
       <button mat-button="elevated">Registrar</button>
       <br />

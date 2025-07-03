@@ -23,7 +23,7 @@
       <!-- Weight Column -->
       <ng-container matColumnDef="nameDonation">
         <th mat-header-cell *matHeaderCellDef>nameDonation</th>
-        <td mat-cell *matCellDef="let element">{{ element.Donation.nameDonation }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.donation.nameDonation }}</td>
       </ng-container>
 
       <!-- Symbol Column -->
@@ -35,7 +35,7 @@
       <ng-container matColumnDef="update">
         <th mat-header-cell *matHeaderCellDef>Actualizar</th>
         <td mat-cell *matCellDef="let element">
-          <button matButton [routerLink]="['ediciones', element.idForum]">
+          <button matButton [routerLink]="['ediciones', element.idTypeDonation]">
             <mat-icon>edit</mat-icon>
           </button>
         </td>
@@ -44,7 +44,7 @@
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef>Eliminar</th>
         <td mat-cell *matCellDef="let element">
-          <button matButton (click)="eliminar(element.idForum)">
+          <button matButton (click)="eliminar(element.idTypeDonation)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>

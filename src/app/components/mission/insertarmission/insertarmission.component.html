@@ -28,12 +28,16 @@
           Descripcion es obligatorio!!
         </mat-error>
       </mat-form-field>
-<br />
-      <mat-form-field class="example-full-width">
-        <mat-label>Nombre de usuario</mat-label>
-        <input matInput formControlName="username" />
-        <mat-error *ngIf="form.get('username')?.hasError('required')">
-          El Nombre es obligatorio!!
+      <br />
+      <mat-form-field>
+        <mat-label>Seleccione usuario</mat-label>
+        <mat-select formControlName="usuario">
+          @for (api of listaUsuarios; track api) {
+          <mat-option [value]="api.idUser">{{ api.username }}</mat-option>
+          }
+        </mat-select>
+        <mat-error *ngIf="form.get('usuario')?.hasError('required')">
+          El usuario es obligatorio!!
         </mat-error>
       </mat-form-field>
 

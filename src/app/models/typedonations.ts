@@ -1,7 +1,7 @@
 import { Donation } from "./donations";
 
 export class Typedonations{
-    idTypeD:number=0;
+    idTypeDonation:number=0;
     typeDonation:string="";
     donation:Donation=new Donation();
 
