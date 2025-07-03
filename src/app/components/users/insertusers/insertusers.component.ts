@@ -85,6 +85,9 @@ export class InsertusersComponent implements OnInit {
       this.router.navigate(['users']);
     }
   }
+  cancelar(){
+    this.router.navigate(['users']);
+  }
   init() {
     this.uS.listId(this.id).subscribe((data) => {
       this.form = new FormGroup({

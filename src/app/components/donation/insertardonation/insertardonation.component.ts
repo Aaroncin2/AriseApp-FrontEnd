@@ -81,6 +81,9 @@ export class InsertardonationComponent implements OnInit {
       this.router.navigate(['donations']);
     }
   }
+  cancelar(){
+    this.router.navigate(['donations']);
+  }
   init() {
     if (this.edicion) {
       this.dS.listId(this.id).subscribe((data) => {

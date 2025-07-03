@@ -1,0 +1,67 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%">
+    <h1>Lista de Misiones y Recompensas</h1>
+  </div>
+  <div class="input-container">
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Input</mat-label>
+      <input matInput formControlName="parametro" />
+    </mat-form-field>
+  </form>
+</div>
+  <div style="text-align: center; margin: 5%">
+    <div class="table-scroll-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+      <!-- Position Column -->
+      <ng-container matColumnDef="idMissionReward">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.idMissionReward }}</td>
+      </ng-container>
+      <ng-container matColumnDef="NameMission">
+        <th mat-header-cell *matHeaderCellDef>nameMission</th>
+        <td mat-cell *matCellDef="let element">{{ element.mission.nameMission }}</td>
+      </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Descripcion">
+        <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+      <ng-container matColumnDef="NameReward">
+        <th mat-header-cell *matHeaderCellDef>NameReward</th>
+        <td mat-cell *matCellDef="let element">{{ element.reward.nameReward }}</td>
+      </ng-container>
+      <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+        <td mat-cell *matCellDef="let element">
+          <button matButton [routerLink]="['ediciones', element.idMissionReward]">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button matButton (click)="eliminar(element.idMissionReward)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <div class="paginator-container">
+             <mat-paginator
+            [pageSize]="8"
+            [pageSizeOptions]="[4, 8, 10]"
+            [length]="100"
+            aria-label="Select page">
+          </mat-paginator>
+        </div>
+        </div>
+  </div>
+</div>

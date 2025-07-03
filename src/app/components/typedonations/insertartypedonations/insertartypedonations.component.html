@@ -1,0 +1,42 @@
+<div class="container">
+  <div style="text-align: center;margin: 5%;"><h1>Registro de Tipos de Donaciones</h1></div>
+  <div style="text-align: center;margin: 5%;">
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput formControlName="codigo" />
+        <mat-error *ngIf="form.get('idTypeDonation')?.hasError('required')">
+          El codigo es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+      <div>
+      <mat-form-field>
+        <mat-label>Tipos de Personalidades</mat-label>
+        <mat-select formControlName="typeDonation">
+          @for (food of tipos; track food) {
+            <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
+          }
+        </mat-select>
+        <mat-error *ngIf="form.get('typeDonation')?.hasError('required') && form.get('typeDonation')?.touched">
+          El tipo de donacion es obligatoria!!
+        </mat-error>
+      </mat-form-field>
+      </div>
+        <br>
+        <mat-form-field>
+        <mat-label>Seleccione Donacion</mat-label>
+        <mat-select formControlName="IdDonation">
+          @for (api of listaDonations; track api) {
+          <mat-option [value]="api.idDonation">{{ api.nameDonation }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <button mat-button="elevated">Registrar</button>
+      <br />
+      <button mat-button color="elevated" type="button" (click)="cancelar()">
+        Cancelar
+    </button>
+    </form>
+  </div>
+</div>

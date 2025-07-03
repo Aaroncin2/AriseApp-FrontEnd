@@ -90,6 +90,9 @@ export class InsertarrolesComponent implements OnInit {
       this.router.navigate(['rols']);
     }
   }
+  cancelar(){
+    this.router.navigate(['rols']);
+  }
   init() {
     if(this.edicion){
       this.rS.listId(this.id).subscribe((data) => {
