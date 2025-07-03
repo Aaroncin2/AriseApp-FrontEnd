@@ -1,30 +1,28 @@
-<div class="container">
-  <div style="text-align: center; margin: 5%">
-    <h1>Registrar Recompensas</h1>
-  </div>
-  <div style="text-align: center; margin: 5%">
+<div class="page-container">
+  <h1 class="title">Registrar Recompensas</h1>
+
+  <div class="form-container">
     <form [formGroup]="form" (submit)="aceptar()">
-      <div>
-        <mat-form-field *ngIf="edicion">
-          <mat-label>Codigo</mat-label>
-          <input matInput formControlName="codigo" />
-          <mat-error *ngIf="form.get('idReward')?.hasError('required')">
-            El codigo es obligatorio!!
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Nombre del Reward</mat-label>
-          <input matInput formControlName="nameReward" />
-          <mat-error *ngIf="form.get('nameReward')?.hasError('required')">
-            El nombre es obligatorio!!
-          </mat-error>
-        </mat-form-field>
+      <mat-form-field *ngIf="edicion" appearance="outline" class="form-field">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo" />
+        <mat-error *ngIf="form.get('idReward')?.hasError('required')">
+          El código es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Nombre del Reward</mat-label>
+        <input matInput formControlName="nameReward" />
+        <mat-error *ngIf="form.get('nameReward')?.hasError('required')">
+          El nombre es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-group">
+        <button class="soft-btn green" type="submit">Registrar</button>
+        <button class="soft-btn gray" type="button" (click)="cancelar()">Cancelar</button>
       </div>
-      <button matButton="elevated">Registrar</button>
-      <br />
-      <button mat-button color="elevated" type="button" (click)="cancelar()">
-        Cancelar
-    </button>
     </form>
   </div>
 </div>

@@ -1,74 +1,72 @@
-<div class="container">
-  <div style="text-align: center; margin: 5%">
-    <h1>Lista de Tipos de Donaciones</h1>
-  </div>
+<div class="page-container">
+  <!-- Título -->
+  <h1 class="title">Lista de Tipos de Donaciones</h1>
+
+  <!-- Buscador -->
   <div class="input-container">
-  <form [formGroup]="form">
-    <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput formControlName="parametro" />
-    </mat-form-field>
-  </form>
-</div>
-  <div style="text-align: center; margin: 5%">
-    <div class="table-scroll-container">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      
-      <!-- Position Column -->
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Buscar</mat-label>
+        <input matInput formControlName="parametro" />
+      </mat-form-field>
+    </form>
+  </div>
+
+  <!-- Tabla -->
+  <div class="table-scroll-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 user-table">
+
+      <!-- ID -->
       <ng-container matColumnDef="idTypeDonation">
-        <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.idTypeDonation }}</td>
+        <th mat-header-cell *matHeaderCellDef class="header-cell">ID</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.idTypeDonation }}</td>
       </ng-container>
 
-      <!-- Weight Column -->
+      <!-- Donación -->
       <ng-container matColumnDef="nameDonation">
-        <th mat-header-cell *matHeaderCellDef>nameDonation</th>
-        <td mat-cell *matCellDef="let element">{{ element.donation.nameDonation }}</td>
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Donación</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.donation.nameDonation }}</td>
       </ng-container>
 
-      <!-- Symbol Column -->
+      <!-- Tipo -->
       <ng-container matColumnDef="typeDonation">
-        <th mat-header-cell *matHeaderCellDef>Type Donation</th>
-        <td mat-cell *matCellDef="let element">{{ element.typeDonation }}</td>
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Tipo</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.typeDonation }}</td>
       </ng-container>
 
+      <!-- Actualizar -->
       <ng-container matColumnDef="update">
-        <th mat-header-cell *matHeaderCellDef>Actualizar</th>
-        <td mat-cell *matCellDef="let element">
-          <button matButton [routerLink]="['ediciones', element.idTypeDonation]">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Actualizar</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">
+          <button mat-icon-button color="primary" [routerLink]="['ediciones', element.idTypeDonation]">
             <mat-icon>edit</mat-icon>
           </button>
         </td>
       </ng-container>
 
+      <!-- Eliminar -->
       <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-        <td mat-cell *matCellDef="let element">
-          <button matButton (click)="eliminar(element.idTypeDonation)">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Eliminar</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">
+          <button mat-icon-button color="warn" (click)="eliminar(element.idTypeDonation)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
       </ng-container>
 
+      <!-- Filas -->
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
+    <!-- Paginador -->
     <div class="paginator-container">
-             <mat-paginator
-            [pageSize]="8"
-            [pageSizeOptions]="[4, 8, 10]"
-            [length]="100"
-            aria-label="Select page">
-          </mat-paginator>
-        </div>
-        </div>
+      <mat-paginator
+        [pageSize]="8"
+        [pageSizeOptions]="[4, 8, 10]"
+        [length]="100"
+        aria-label="Selector de página">
+      </mat-paginator>
+    </div>
   </div>
 </div>
-
-
-
-
-
-
-

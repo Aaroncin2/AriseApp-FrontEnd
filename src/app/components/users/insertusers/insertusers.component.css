@@ -1,26 +1,85 @@
-mat-form-field {
-  width: 60%;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
 }
 
-button[matButton="elevated"] {
-  background-color: rgb(46, 158, 46);
+.title {
+  font-size: 2rem;
+  color: #004d1a;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
 
-  color: white;
+.form-container {
+  background-color: #f4fff4;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
+.form-field {
+  width: 100%;
+}
+
+.form-group-radio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.radio-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #2e7d32;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.soft-btn {
+  padding: 0.75rem 1.75rem;
   border: none;
-
-  padding: 0.5rem 1.25rem;
-
-  font-size: 1.1rem;
-
-  border-radius: 0.375rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-
-  transition: background-color 0.3s ease;
-
-  width: 60%;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-button[matButton="elevated"]:hover {
-  background-color: #5dea9c;
+.soft-btn.green {
+  background-color: #52c96f;
+  color: white;
+}
+
+.soft-btn.green:hover {
+  background-color: #6ee891;
+  transform: translateY(-1px);
+}
+
+.soft-btn.gray {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.soft-btn.gray:hover {
+  background-color: #d5d5d5;
+  transform: translateY(-1px);
 }

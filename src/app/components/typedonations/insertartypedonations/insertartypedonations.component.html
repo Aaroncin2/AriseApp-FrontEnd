@@ -1,16 +1,18 @@
-<div class="container">
-  <div style="text-align: center;margin: 5%;"><h1>Registro de Tipos de Donaciones</h1></div>
-  <div style="text-align: center;margin: 5%;">
+<div class="page-container">
+  <h1 class="title">Registro de Tipos de Donaciones</h1>
+
+  <div class="form-container">
     <form [formGroup]="form" (submit)="aceptar()">
-      <mat-form-field *ngIf="edicion">
-        <mat-label>Codigo</mat-label>
+
+      <mat-form-field *ngIf="edicion" appearance="outline" class="form-field">
+        <mat-label>Código</mat-label>
         <input matInput formControlName="codigo" />
         <mat-error *ngIf="form.get('idTypeDonation')?.hasError('required')">
-          El codigo es obligatorio!!
+          El código es obligatorio.
         </mat-error>
       </mat-form-field>
-      <div>
-      <mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
         <mat-label>Tipos de Personalidades</mat-label>
         <mat-select formControlName="typeDonation">
           @for (food of tipos; track food) {
@@ -18,25 +20,26 @@
           }
         </mat-select>
         <mat-error *ngIf="form.get('typeDonation')?.hasError('required') && form.get('typeDonation')?.touched">
-          El tipo de donacion es obligatoria!!
+          El tipo de donación es obligatorio.
         </mat-error>
       </mat-form-field>
-      </div>
-        <br>
-        <mat-form-field>
-        <mat-label>Seleccione Donacion</mat-label>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Seleccione Donación</mat-label>
         <mat-select formControlName="IdDonation">
           @for (api of listaDonations; track api) {
-          <mat-option [value]="api.idDonation">{{ api.nameDonation }}</mat-option>
+            <mat-option [value]="api.idDonation">{{ api.nameDonation }}</mat-option>
           }
         </mat-select>
+        <mat-error *ngIf="form.get('IdDonation')?.hasError('required')">
+          La donación es obligatoria.
+        </mat-error>
       </mat-form-field>
-      <br>
-      <button mat-button="elevated">Registrar</button>
-      <br />
-      <button mat-button color="elevated" type="button" (click)="cancelar()">
-        Cancelar
-    </button>
+
+      <div class="button-group">
+        <button type="submit" class="soft-btn green">Registrar</button>
+        <button type="button" class="soft-btn gray" (click)="cancelar()">Cancelar</button>
+      </div>
     </form>
   </div>
 </div>
