@@ -1,56 +1,60 @@
-<div class="container">
-  <div style="text-align: center; margin: 5%">
-    <h1>Lista de Misiones</h1>
-  </div>
+<div class="page-container">
+  <!-- Título -->
+  <h1 class="title">Lista de Misiones</h1>
+
+  <!-- Input de búsqueda -->
   <div class="input-container">
-  <form [formGroup]="form">
-    <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput formControlName="parametro" />
-    </mat-form-field>
-  </form>
-</div>
-  <div style="text-align: center; margin: 5%">
-    <div class="table-scroll-container">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      
-      <!-- Position Column -->
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Buscar misión</mat-label>
+        <input matInput formControlName="parametro" />
+      </mat-form-field>
+    </form>
+  </div>
+
+  <!-- Tabla -->
+  <div class="table-scroll-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 user-table">
+
+      <!-- ID -->
       <ng-container matColumnDef="idMission">
-        <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.idMission }}</td>
+        <th mat-header-cell *matHeaderCellDef class="header-cell">ID</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.idMission }}</td>
       </ng-container>
 
-      <!-- Weight Column -->
+      <!-- Nombre de Misión -->
       <ng-container matColumnDef="nameMission">
-        <th mat-header-cell *matHeaderCellDef>name Mission</th>
-        <td mat-cell *matCellDef="let element">{{ element.nameMission }}</td>
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Nombre</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.nameMission }}</td>
       </ng-container>
 
-      <!-- Symbol Column -->
+      <!-- Descripción -->
       <ng-container matColumnDef="descriptionMission">
-        <th mat-header-cell *matHeaderCellDef>Descripcion</th>
-        <td mat-cell *matCellDef="let element">{{ element.descriptionMission }}</td>
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Descripción</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.descriptionMission }}</td>
       </ng-container>
 
-      <!-- Name Column -->
+      <!-- Usuario -->
       <ng-container matColumnDef="NameUser">
-        <th mat-header-cell *matHeaderCellDef>Nombre de Usuario</th>
-        <td mat-cell *matCellDef="let element">{{ element.users.username }}</td>
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Usuario</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.users.username }}</td>
       </ng-container>
 
+      <!-- Actualizar -->
       <ng-container matColumnDef="update">
-        <th mat-header-cell *matHeaderCellDef>Actualizar</th>
-        <td mat-cell *matCellDef="let element">
-          <button matButton [routerLink]="['ediciones', element.idMission]">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Actualizar</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">
+          <button mat-icon-button color="primary" [routerLink]="['ediciones', element.idMission]">
             <mat-icon>edit</mat-icon>
           </button>
         </td>
       </ng-container>
 
+      <!-- Eliminar -->
       <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-        <td mat-cell *matCellDef="let element">
-          <button matButton (click)="eliminar(element.idMission)">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Eliminar</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">
+          <button mat-icon-button color="warn" (click)="eliminar(element.idMission)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
@@ -60,21 +64,14 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
+    <!-- Paginador -->
     <div class="paginator-container">
-             <mat-paginator
-            [pageSize]="8"
-            [pageSizeOptions]="[4, 8, 10]"
-            [length]="100"
-            aria-label="Select page">
-          </mat-paginator>
-        </div>
-        </div>
+      <mat-paginator
+        [pageSize]="8"
+        [pageSizeOptions]="[4, 8, 10]"
+        [length]="100"
+        aria-label="Selector de página">
+      </mat-paginator>
+    </div>
   </div>
 </div>
-
-
-
-
-
-
-

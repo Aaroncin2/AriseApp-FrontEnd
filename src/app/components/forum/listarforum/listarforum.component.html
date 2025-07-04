@@ -1,80 +1,27 @@
-<div class="container">
-  <div style="text-align: center; margin: 5%">
-    <h1>Lista de Forums</h1>
-  </div>
-  <div class="input-container">
-  <form [formGroup]="form">
-    <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput formControlName="parametro" />
-    </mat-form-field>
-  </form>
-</div>
-  <div style="text-align: center; margin: 5%">
-    <div class="table-scroll-container">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="page-container">
+  <h1 class="title">Lista de Forums</h1>
+
+  <div class="card-grid">
+    <div class="forum-card" *ngFor="let forum of dataSource.data">
       
-      <!-- Position Column -->
-      <ng-container matColumnDef="idForum">
-        <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.idForum }}</td>
-      </ng-container>
+      <!-- Nuevo título con el nombre del foro -->
+      <h3 class="forum-title">{{ forum.nameForum }}</h3>
 
-      <!-- Weight Column -->
-      <ng-container matColumnDef="contentForum">
-        <th mat-header-cell *matHeaderCellDef>Contenido</th>
-        <td mat-cell *matCellDef="let element">{{ element.contentForum }}</td>
-      </ng-container>
+      <!-- Fecha -->
+      <div class="forum-date">{{ forum.dateForum | date: 'shortDate' }}</div>
 
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="dateForum">
-        <th mat-header-cell *matHeaderCellDef>Fecha</th>
-        <td mat-cell *matCellDef="let element">{{ element.dateForum }}</td>
-      </ng-container>
+      <!-- Contenido del foro -->
+      <p class="forum-content">{{ forum.contentForum }}</p>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="nameForum">
-        <th mat-header-cell *matHeaderCellDef>Nombre</th>
-        <td mat-cell *matCellDef="let element">{{ element.nameForum }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="update">
-        <th mat-header-cell *matHeaderCellDef>Actualizar</th>
-        <td mat-cell *matCellDef="let element">
-          <button matButton [routerLink]="['ediciones', element.idForum]">
-            <mat-icon>edit</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-        <td mat-cell *matCellDef="let element">
-          <button matButton (click)="eliminar(element.idForum)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-
-    <div class="paginator-container">
-             <mat-paginator
-            [pageSize]="8"
-            [pageSizeOptions]="[4, 8, 10]"
-            [length]="100"
-            aria-label="Select page">
-          </mat-paginator>
-        </div>
-        </div>
+      <!-- Botones de acción -->
+      <div class="card-actions">
+        <button class="action-button edit" [routerLink]="['ediciones', forum.idForum]">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button class="action-button delete" (click)="eliminar(forum.idForum)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
-
-
-
-

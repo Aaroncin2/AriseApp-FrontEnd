@@ -1,55 +1,52 @@
-<div class="container">
-  <div style="text-align: center;margin: 5%;"><h1>Registro de Forums</h1></div>
-  <div style="text-align: center;margin: 5%;">
-    <form [formGroup]="form" (submit)="aceptar()">
-      <mat-form-field *ngIf="edicion">
-        <mat-label>Codigo</mat-label>
-        <input matInput formControlName="codigo" />
-        <mat-error *ngIf="form.get('idForum')?.hasError('required')">
-          El codigo es obligatorio!!
-        </mat-error>
-      </mat-form-field>
+<div class="page-container">
+  <h1 class="title">Registro de Forums</h1>
 
-      <div>
-        <mat-form-field>
-          <mat-label>Nombre de Foro</mat-label>
-          <input matInput formControlName="nameForum" />
-          <mat-error *ngIf="form.get('nameForum')?.hasError('required')">
-            El nombre es obligatorio!!
-          </mat-error>
-        </mat-form-field>
-      </div>
+  <form [formGroup]="form" (submit)="aceptar()" class="form-container">
 
-      <mat-form-field>
-        <mat-label>Escoger un día</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="dateForum" />
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle
-          matIconSuffix
-          [for]="picker"
-        ></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="form.get('dateForum')?.hasError('required')">
-          La fecha es obligatoria!!
-        </mat-error>
-      </mat-form-field>
-      <div>
-        <mat-form-field>
-          <mat-label>Contenido o descripcion</mat-label>
-          <input matInput formControlName="contentForum" />
-          <mat-error *ngIf="form.get('contentForum')?.hasError('required')">
-            El contenido es obligatorio!!
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <button mat-button="elevated">
-        Registrar</button>
-        <br />
-      <button mat-button color="elevated" type="button" (click)="cancelar()">
-        Cancelar
-    </button>
-    </form>
-  </div>
+    <!-- Código (solo en edición) -->
+    <mat-form-field appearance="outline" *ngIf="edicion" class="form-field">
+      <mat-label>Código</mat-label>
+      <input matInput formControlName="codigo" />
+      <mat-error *ngIf="form.get('idForum')?.hasError('required')">
+        El código es obligatorio!!
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Nombre del foro -->
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Nombre del Foro</mat-label>
+      <input matInput formControlName="nameForum" />
+      <mat-error *ngIf="form.get('nameForum')?.hasError('required')">
+        El nombre es obligatorio!!
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Fecha -->
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Escoger un día</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateForum" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="form.get('dateForum')?.hasError('required')">
+        La fecha es obligatoria!!
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Contenido -->
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Contenido o descripción</mat-label>
+      <textarea matInput formControlName="contentForum" rows="3"></textarea>
+      <mat-error *ngIf="form.get('contentForum')?.hasError('required')">
+        El contenido es obligatorio!!
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Botones -->
+    <div class="button-group">
+      <button type="submit" class="soft-btn green">Registrar</button>
+      <button type="button" class="soft-btn gray" (click)="cancelar()">Cancelar</button>
+    </div>
+
+  </form>
 </div>
-
-

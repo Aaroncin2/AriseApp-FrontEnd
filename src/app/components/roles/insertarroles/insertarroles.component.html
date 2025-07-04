@@ -1,43 +1,48 @@
-<div class="container">
-  <div style="text-align: center; margin: 5%">
-    <h1>Registro de versiones</h1>
-  </div>
-  <div style="text-align: center; margin: 5%">
-    <form [formGroup]="form" (submit)="aceptar()">
-        <mat-form-field *ngIf="edicion">
-        <mat-label>ID</mat-label>
-        <input matInput formControlName="codigo" />
-        <mat-error *ngIf="form.get('codigo')?.hasError('required')">
-          El código es obligatorio!!
-        </mat-error>
-      </mat-form-field>
-      <br>
-        <mat-form-field>
-        <mat-label>Tipos de Rol</mat-label>
-        <mat-select formControlName="rolcito">
-          @for (tipo of roles; track tipo) {
-          <mat-option [value]="tipo.value">{{ tipo.viewValue }}</mat-option>
-          }
-        </mat-select>
-        <mat-error *ngIf="form.get('rolcito')?.hasError('required')">
-          El tipo es obligatorio!!
-        </mat-error>
-      </mat-form-field>
-        <br>
-        <mat-form-field>
-        <mat-label>Seleccione Usuario</mat-label>
-        <mat-select formControlName="usuario">
-          @for (api of listaUsuarios; track api) {
-          <mat-option [value]="api.idUser">{{ api.username }}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
-      <br>
-      <button matButton="elevated">Registrar</button>
-      <br />
-      <button mat-button color="elevated" type="button" (click)="cancelar()">
+
+<div class="page-container">
+  <!-- Título -->
+  <h1 class="title">Registro de Versiones</h1>
+
+  <!-- Formulario -->
+  <form [formGroup]="form" (submit)="aceptar()" class="form-container">
+    <!-- Código (solo en edición) -->
+    <mat-form-field appearance="outline" *ngIf="edicion" class="form-field">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="codigo" />
+      <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+        El código es obligatorio!!
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Tipo de Rol -->
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Tipos de Rol</mat-label>
+      <mat-select formControlName="rolcito">
+        @for (tipo of roles; track tipo) {
+        <mat-option [value]="tipo.value">{{ tipo.viewValue }}</mat-option>
+        }
+      </mat-select>
+      <mat-error *ngIf="form.get('rolcito')?.hasError('required')">
+        El tipo es obligatorio!!
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Usuario -->
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Seleccione Aplicación</mat-label>
+      <mat-select formControlName="usuario">
+        @for (api of listaUsuarios; track api) {
+        <mat-option [value]="api.idUser">{{ api.username }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Botones -->
+    <div class="button-group">
+      <button type="submit" class="soft-btn green">Registrar</button>
+      <button type="button" class="soft-btn gray" (click)="cancelar()">
         Cancelar
-    </button>
-    </form>
-  </div>
+      </button>
+    </div>
+  </form>
 </div>

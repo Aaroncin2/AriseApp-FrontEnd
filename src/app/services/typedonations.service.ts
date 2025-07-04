@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { enviroment } from '../../environments/environment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Typedonations } from '../models/typedonations';
 import { HttpClient } from '@angular/common/http';
+import { HU54DTO } from '../models/HU54DTO';
 const base_url = enviroment.base;
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,8 @@ export class TypedonationsService {
   }
   deleteTP(id: number) {
     return this.http.delete(`${this.url}/${id}`);
+  }
+  getHU54DTO(): Observable<HU54DTO[]> {
+    return this.http.get<HU54DTO[]>(`${this.url}/HU54`);
   }
 }
