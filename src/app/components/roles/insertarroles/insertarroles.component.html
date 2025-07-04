@@ -25,7 +25,7 @@
       </mat-form-field>
         <br>
         <mat-form-field>
-        <mat-label>Seleccione Aplicacion</mat-label>
+        <mat-label>Seleccione Usuario</mat-label>
         <mat-select formControlName="usuario">
           @for (api of listaUsuarios; track api) {
           <mat-option [value]="api.idUser">{{ api.username }}</mat-option>

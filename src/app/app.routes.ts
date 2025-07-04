@@ -15,6 +15,12 @@ import { MissionrewardComponent } from './components/missionreward/missionreward
 import { InsertarmissionrewardComponent } from './components/missionreward/insertarmissionreward/insertarmissionreward.component';
 import { TypedonationsComponent } from './components/typedonations/typedonations.component';
 import { InsertartypedonationsComponent } from './components/typedonations/insertartypedonations/insertartypedonations.component';
+import { CampaignComponent } from './components/campaign/campaign.component';
+import { InsertarcampaignComponent } from './components/campaign/insertarcampaign/insertarcampaign.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { InsertarcommentComponent } from './components/comment/insertarcomment/insertarcomment.component';
+import { VolunteeringComponent } from './components/volunteering/volunteering.component';
+import { InsertarvolunteeringComponent } from './components/volunteering/insertarvolunteering/insertarvolunteering.component';
 
 export const routes: Routes = [
   {
@@ -126,6 +132,48 @@ export const routes: Routes = [
       {
         path: 'ediciones/:id',
         component: InsertartypedonationsComponent,
+      },
+    ],
+  },
+  {
+    path: 'campaign',
+    component: CampaignComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: InsertarcampaignComponent,
+      },
+      {
+        path: 'ediciones/:id',
+        component: InsertarcampaignComponent,
+      },
+    ],
+  },
+  {
+    path: 'comments',
+    component: CommentComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: InsertarcommentComponent,
+      },
+      {
+        path: 'ediciones/:id',
+        component: InsertarcommentComponent,
+      },
+    ],
+  },
+  {
+    path: 'volunteering',
+    component: VolunteeringComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: InsertarvolunteeringComponent,
+      },
+      {
+        path: 'ediciones/:id',
+        component: InsertarvolunteeringComponent,
       },
     ],
   },

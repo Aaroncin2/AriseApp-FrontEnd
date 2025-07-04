@@ -41,6 +41,27 @@
       Tipos de Donaciones
     </button>
   </div>
+   <div>
+    <button mat-button [matMenuTriggerFor]="menuCampaign" class="btn-rojo">
+      <mat-icon>clear_all</mat-icon>
+      Campaña
+    </button>
+  </div>
+   <div>
+    <button mat-button [matMenuTriggerFor]="menuComment" class="btn-rojo">
+      <mat-icon>clear_all</mat-icon>
+      Comentarios
+    </button>
+  </div>
+   <div>
+    <button mat-button [matMenuTriggerFor]="menuVolunteering" class="btn-rojo">
+      <mat-icon>clear_all</mat-icon>
+      Voluntariado
+    </button>
+  </div>
+
+
+
 </mat-toolbar>
 <mat-menu #menuForum="matMenu">
   <button mat-menu-item routerLink="/forums">Listar</button>
@@ -69,4 +90,16 @@
 <mat-menu #menuTypeDonations="matMenu">
   <button mat-menu-item routerLink="/typedonations">Listar</button>
   <button mat-menu-item routerLink="/typedonations/nuevo">Registrar</button>
+</mat-menu>
+<mat-menu #menuCampaign="matMenu">
+  <button mat-menu-item routerLink="/campaign">Listar</button>
+  <button mat-menu-item routerLink="/campaign/nuevo">Registrar</button>
+</mat-menu>
+<mat-menu #menuComment="matMenu">
+  <button mat-menu-item routerLink="/comments">Listar</button>
+  <button mat-menu-item routerLink="/comments/nuevo">Registrar</button>
+</mat-menu>
+<mat-menu #menuVolunteering="matMenu">
+  <button mat-menu-item routerLink="/volunteering">Listar</button>
+  <button mat-menu-item routerLink="/volunteering/nuevo">Registrar</button>
 </mat-menu>
