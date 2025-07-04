@@ -15,6 +15,14 @@ import { MissionrewardComponent } from './components/missionreward/missionreward
 import { InsertarmissionrewardComponent } from './components/missionreward/insertarmissionreward/insertarmissionreward.component';
 import { TypedonationsComponent } from './components/typedonations/typedonations.component';
 import { InsertartypedonationsComponent } from './components/typedonations/insertartypedonations/insertartypedonations.component';
+
+import { CampaignComponent } from './components/campaign/campaign.component';
+import { InsertarcampaignComponent } from './components/campaign/insertarcampaign/insertarcampaign.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { InsertarcommentComponent } from './components/comment/insertarcomment/insertarcomment.component';
+import { VolunteeringComponent } from './components/volunteering/volunteering.component';
+import { InsertarvolunteeringComponent } from './components/volunteering/insertarvolunteering/insertarvolunteering.component';
+
 import { ReportesComponent } from './components/reportes/reportes.component';
 import { ReporteHU54Component } from './components/reportes/reporte-hu54/reporte-hu54.component';
 import { ReporteHU55Component } from './components/reportes/reporte-hu55/reporte-hu55.component';
@@ -24,6 +32,7 @@ import { ReporteHU57Component } from './components/reportes/reporte-hu57/reporte
 import { ReporteHU60Component } from './components/reportes/reporte-hu60/reporte-hu60.component';
 import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+
 
 export const routes: Routes = [
   {
@@ -147,6 +156,46 @@ export const routes: Routes = [
     ],
   },
   {
+    path: 'campaign',
+    component: CampaignComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: InsertarcampaignComponent,
+      },
+      {
+        path: 'ediciones/:id',
+        component: InsertarcampaignComponent,
+      },
+    ],
+  },
+  {
+    path: 'comments',
+    component: CommentComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: InsertarcommentComponent,
+      },
+      {
+        path: 'ediciones/:id',
+        component: InsertarcommentComponent,
+      },
+    ],
+  },
+  {
+    path: 'volunteering',
+    component: VolunteeringComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: InsertarvolunteeringComponent,
+      },
+      {
+        path: 'ediciones/:id',
+        component: InsertarvolunteeringComponent,
+      },
+    ],
     path: 'reportes',
     component: ReportesComponent,
     children: [
@@ -179,6 +228,5 @@ export const routes: Routes = [
         component: ReporteHU60Component,
       }
     ],
-
   },
 ];
