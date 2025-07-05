@@ -1,87 +1,103 @@
+<mat-toolbar class="custom-toolbar" *ngIf="verificar()">    
+     <div>
+    <button mat-button [routerLink]="['/inicio']" style="color: white">
+      <mat-icon>home</mat-icon>Inicio
+    </button>
+  </div>
 <mat-toolbar class="custom-toolbar">
   <div>
-    <button mat-button [matMenuTriggerFor]="menuUser" class="btn-rojo">
+    <button mat-button [matMenuTriggerFor]="menuUser" class="btn-rojo" *ngIf="isAdmin() || isEcologista()">
       <mat-icon>person</mat-icon>
       Usuarios
     </button>
   </div>
   <div>
-    <button mat-button [matMenuTriggerFor]="menuRol" class="btn-rojo">
+    <button mat-button [matMenuTriggerFor]="menuRol" class="btn-rojo" *ngIf="isAdmin() ">
       <mat-icon>person</mat-icon>
       Roles
     </button>
   </div>
   <div>
-    <button mat-button [matMenuTriggerFor]="menuForum" class="btn-rojo">
+    <button mat-button [matMenuTriggerFor]="menuForum" class="btn-rojo" *ngIf="isAdmin() || isEcologista() || isVoluntario()">
       <mat-icon>forum</mat-icon>
       Foros
     </button>
   </div>
   <div>
-    <button mat-button [matMenuTriggerFor]="menuDonation" class="btn-rojo">
+    <button mat-button [matMenuTriggerFor]="menuDonation" class="btn-rojo" *ngIf="isAdmin() || isEcologista() || isVoluntario()">
       <mat-icon>money</mat-icon>
       Donaciones
     </button>
   </div>
   <div>
-    <button mat-button [matMenuTriggerFor]="menuReward" class="btn-rojo">
+    <button mat-button [matMenuTriggerFor]="menuReward" class="btn-rojo" *ngIf="isEcologista() || isAdmin() ||isVoluntario()">
       <mat-icon>star</mat-icon>
       Recompensas
     </button>
   </div>
   <div>
-    <button mat-button [matMenuTriggerFor]="menuMission" class="btn-rojo">
+    <button mat-button [matMenuTriggerFor]="menuMission" class="btn-rojo" *ngIf="isAdmin() || isEcologista() || isVoluntario()">
       <mat-icon>assignment</mat-icon>
       Misiones
     </button>
   </div>
   <div>
-    <button mat-button [matMenuTriggerFor]="menuMissionReward" class="btn-rojo">
+    <button mat-button [matMenuTriggerFor]="menuMissionReward" class="btn-rojo" *ngIf="isAdmin() || isEcologista()">
       <mat-icon>dashboard</mat-icon>
       Misiones Recompensas
     </button>
   </div>
   <div>
-    <button mat-button [matMenuTriggerFor]="menuTypeDonations" class="btn-rojo">
+    <button mat-button [matMenuTriggerFor]="menuTypeDonations" class="btn-rojo" *ngIf="isAdmin() || isEcologista()">
       <mat-icon>clear_all</mat-icon>
       Tipos de Donaciones
     </button>
   </div>
   <div>
-    <button mat-button [matMenuTriggerFor]="menuReportes" class="btn-rojo">
+    <button mat-button [matMenuTriggerFor]="menuReportes" class="btn-rojo" *ngIf="isAdmin()">
       <mat-icon>clear_all</mat-icon>
       Reportes
     </button>
   </div>
 </mat-toolbar>
+<mat-menu #menuUser="matMenu" >
+  <button mat-menu-item routerLink="/users" *ngIf="isAdmin() || isEcologista()">Listar</button>
+  <button mat-menu-item routerLink="/users/nuevo" *ngIf="isAdmin() || isEcologista()">Registrar</button>
+</mat-menu>
+<mat-menu #menuRol="matMenu">
+  <button mat-menu-item routerLink="/rols" *ngIf="isAdmin()">Listar</button>
+  <button mat-menu-item routerLink="/rols/nuevo" *ngIf="isAdmin()">Registrar</button>
+</mat-menu>
 <mat-menu #menuForum="matMenu">
-  <button mat-menu-item routerLink="/forums">Listar</button>
-  <button mat-menu-item routerLink="/forums/nuevo">Registrar</button>
+  <button mat-menu-item routerLink="/forums" *ngIf="isAdmin() || isEcologista() || isVoluntario()">Listar</button>
+  <button mat-menu-item routerLink="/forums/nuevo" *ngIf="isAdmin() || isEcologista() || isVoluntario()">Registrar</button>
 </mat-menu>
 <mat-menu #menuDonation="matMenu">
-  <button mat-menu-item routerLink="/donations">Listar</button>
-  <button mat-menu-item routerLink="/donations/nuevo">Registrar</button>
-</mat-menu>
-<mat-menu #menuUser="matMenu">
-  <button mat-menu-item routerLink="/users">Listar</button>
-  <button mat-menu-item routerLink="/users/nuevo">Registrar</button>
+  <button mat-menu-item routerLink="/donations" *ngIf="isAdmin() || isEcologista() || isVoluntario()">Listar</button>
+  <button mat-menu-item routerLink="/donations/nuevo" *ngIf="isAdmin() || isEcologista() || isVoluntario()">Registrar</button>
 </mat-menu>
 <mat-menu #menuReward="matMenu">
-  <button mat-menu-item routerLink="/rewards">Listar</button>
-  <button mat-menu-item routerLink="/rewards/nuevo">Registrar</button>
+  <button mat-menu-item routerLink="/rewards" *ngIf="isAdmin() || isEcologista()|| isVoluntario() ">Listar</button>
+  <button mat-menu-item routerLink="/rewards/nuevo" *ngIf="isAdmin() || isEcologista()">Registrar</button>
 </mat-menu>
 <mat-menu #menuMission="matMenu">
-  <button mat-menu-item routerLink="/mission">Listar</button>
-  <button mat-menu-item routerLink="/mission/nuevo">Registrar</button>
+  <button mat-menu-item routerLink="/mission"*ngIf="isAdmin() || isEcologista()|| isVoluntario()">Listar</button>
+  <button mat-menu-item routerLink="/mission/nuevo" *ngIf="isAdmin() || isEcologista()">Registrar</button>
 </mat-menu>
 <mat-menu #menuMissionReward="matMenu">
-  <button mat-menu-item routerLink="/missionreward">Listar</button>
-  <button mat-menu-item routerLink="/missionreward/nuevo">Registrar</button>
+  <button mat-menu-item routerLink="/missionreward" *ngIf="isAdmin() || isEcologista()">Listar</button>
+  <button mat-menu-item routerLink="/missionreward/nuevo"*ngIf="isAdmin() || isEcologista()">Registrar</button>
 </mat-menu>
 <mat-menu #menuTypeDonations="matMenu">
-  <button mat-menu-item routerLink="/typedonations">Listar</button>
-  <button mat-menu-item routerLink="/typedonations/nuevo">Registrar</button>
+  <button mat-menu-item routerLink="/typedonations" *ngIf="isAdmin() || isEcologista()">Listar</button>
+  <button mat-menu-item routerLink="/typedonations/nuevo" *ngIf="isAdmin() || isEcologista()">Registrar</button>
 </mat-menu>
+<span class="toolbar-spacer"></span>
+ <div class="right-menu">
+    <button mat-button [matMenuTriggerFor]="menuSalir" >
+      <mat-icon>person</mat-icon>Usuario
+    </button>
+ </div>
 <mat-menu #menuReportes="matMenu">
   <button mat-menu-item routerLink="/reportes/hu54">Reporte HU54</button>
   <button mat-menu-item routerLink="/reportes/hu55">Reporte HU55</button>
@@ -91,7 +107,13 @@
   <button mat-menu-item routerLink="/reportes/hu59">Reporte HU59</button>
   <button mat-menu-item routerLink="/reportes/hu60">Reporte HU60</button>
 </mat-menu>
-<mat-menu #menuRol="matMenu">
-  <button mat-menu-item routerLink="/rols">Listar</button>
-  <button mat-menu-item routerLink="/rols/nuevo">Registrar</button>
+<mat-menu #menuSalir="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+  <button mat-menu-item>
+    Rol:
+    <span>{{ role }}</span>
+  </button>
 </mat-menu>
