@@ -32,10 +32,18 @@ import { ReporteHU57Component } from './components/reportes/reporte-hu57/reporte
 import { ReporteHU60Component } from './components/reportes/reporte-hu60/reporte-hu60.component';
 import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { ReviewComponent } from './components/review/review.component';
-import { InsertreviewComponent } from './components/review/insertreview/insertreview.component';
+
 
 export const routes: Routes = [
+{
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
   {
     path: 'chatbot',
     component: ChatbotComponent,
@@ -43,116 +51,142 @@ export const routes: Routes = [
   {
     path: 'inicio',
     component: InicioComponent,
+    canActivate: [guardGuard],
   },
   {
-    path: 'mission',
+    path: 'mission',  //delete ecologista y admin
     component: MissionComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']},
     children: [
       {
         path: 'nuevo',
         component: InsertarmissionComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
       {
         path: 'ediciones/:id',
         component: InsertarmissionComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
     ],
   },
   {
     path: 'donations',
     component: DonationComponent,
+     canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']},
     children: [
       {
         path: 'nuevo',
         component: InsertardonationComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']}
+
       },
       {
         path: 'ediciones/:id',
         component: InsertardonationComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']}
       },
     ],
   },
   {
     path: 'forums',
     component: ForumComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']},
     children: [
       {
         path: 'nuevo',
         component: InsertforumComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']}
       },
       {
         path: 'ediciones/:id',
         component: InsertforumComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']}
       },
     ],
   },
   {
-    path: 'rewards',
+    path: 'rewards', //delete ecologista y admin
     component: RewardComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']},
     children: [
       {
         path: 'nuevo',
         component: InsertrewardComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
       {
         path: 'ediciones/:id',
         component: InsertrewardComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
     ],
   },
   {
     path: 'users',
     component: UsersComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']},
     children: [
       {
         path: 'nuevo',
         component: InsertusersComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
       {
         path: 'ediciones/:id',
         component: InsertusersComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
     ],
   },
   {
     path: 'rols',
     component: RolesComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN']},
     children: [
       {
         path: 'nuevo',
         component: InsertarrolesComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN']}
       },
       {
         path: 'ediciones/:id',
         component: InsertarrolesComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN']}
       },
     ],
   },
   {
     path: 'missionreward',
     component: MissionrewardComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']},
     children: [
       {
         path: 'nuevo',
         component: InsertarmissionrewardComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
       {
         path: 'ediciones/:id',
         component: InsertarmissionrewardComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
     ],
   },
   {
     path: 'typedonations',
     component: TypedonationsComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']},
     children: [
       {
         path: 'nuevo',
         component: InsertartypedonationsComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
       {
         path: 'ediciones/:id',
         component: InsertartypedonationsComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
     ],
   },
@@ -198,21 +232,7 @@ export const routes: Routes = [
       },
     ],
   },
-  {
-    path: 'reviews',
-    component: ReviewComponent,
-    children:[
-      {
-        path: 'nuevo',
-        component: InsertreviewComponent,
-      },
-      {
-        path: 'ediciones/:id',
-        component: InsertreviewComponent,
-      }
-    ]
-  },
-  {
+    {
     path: 'reportes',
     component: ReportesComponent,
     children: [
