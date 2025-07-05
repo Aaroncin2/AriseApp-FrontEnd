@@ -1,49 +1,47 @@
-<div class="container">
-  <div style="text-align: center; margin: 5%;">
-    <h1>Lista de Comentarios</h1>
-  </div>
+<div class="page-container">
+  <h1 class="title">Lista de Comentarios</h1>
 
   <div class="input-container">
     <form [formGroup]="form">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="search-field">
         <mat-label>Buscar</mat-label>
         <input matInput formControlName="parametro" />
       </mat-form-field>
     </form>
   </div>
 
-  <div style="text-align: center; margin: 5%;">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="user-table mat-elevation-z8">
+
       <!-- ID -->
       <ng-container matColumnDef="idComment">
-        <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.idComment }}</td>
+        <th mat-header-cell *matHeaderCellDef class="header-cell">ID</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.idComment }}</td>
       </ng-container>
 
       <!-- Categoría -->
       <ng-container matColumnDef="categoryComment">
-        <th mat-header-cell *matHeaderCellDef>Categoría</th>
-        <td mat-cell *matCellDef="let element">{{ element.categoryComment }}</td>
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Categoría</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.categoryComment }}</td>
       </ng-container>
 
       <!-- Descripción -->
       <ng-container matColumnDef="descriptionComment">
-        <th mat-header-cell *matHeaderCellDef>Descripción</th>
-        <td mat-cell *matCellDef="let element">{{ element.descriptionComment }}</td>
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Descripción</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.descriptionComment }}</td>
       </ng-container>
 
       <!-- Fecha -->
       <ng-container matColumnDef="dateComment">
-        <th mat-header-cell *matHeaderCellDef>Fecha</th>
-        <td mat-cell *matCellDef="let element">{{ element.dateComment | date: 'shortDate' }}</td>
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Fecha</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.dateComment | date: 'shortDate' }}</td>
       </ng-container>
 
       <!-- Actualizar -->
       <ng-container matColumnDef="update">
-        <th mat-header-cell *matHeaderCellDef>Actualizar</th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-button [routerLink]="['/comments/ediciones', element.idComment]">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Actualizar</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">
+          <button mat-icon-button [routerLink]="['/comments/ediciones', element.idComment]">
             <mat-icon>edit</mat-icon>
           </button>
         </td>
@@ -51,9 +49,9 @@
 
       <!-- Eliminar -->
       <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-button (click)="eliminar(element.idComment)">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Eliminar</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">
+          <button mat-icon-button (click)="eliminar(element.idComment)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
@@ -63,15 +61,14 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+  </div>
 
-    <div class="paginator-container">
-      <mat-paginator
-        [pageSize]="8"
-        [pageSizeOptions]="[4, 8, 10]"
-        showFirstLastButtons
-        aria-label="Paginador de comentarios">
-      </mat-paginator>
-    </div>
+  <div class="paginator-container">
+    <mat-paginator
+      [pageSize]="8"
+      [pageSizeOptions]="[4, 8, 10]"
+      showFirstLastButtons
+      aria-label="Paginador de comentarios">
+    </mat-paginator>
   </div>
 </div>
-

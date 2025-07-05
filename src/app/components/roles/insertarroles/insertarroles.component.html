@@ -29,7 +29,7 @@
 
     <!-- Usuario -->
     <mat-form-field appearance="outline" class="form-field">
-      <mat-label>Seleccione Aplicación</mat-label>
+      <mat-label>Seleccione Usuario</mat-label>
       <mat-select formControlName="usuario">
         @for (api of listaUsuarios; track api) {
         <mat-option [value]="api.idUser">{{ api.username }}</mat-option>

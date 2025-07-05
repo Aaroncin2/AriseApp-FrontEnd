@@ -1,0 +1,54 @@
+<div class="page-container">
+  <h1 class="title">Lista de Reseñas</h1>
+
+  <!-- Buscador -->
+  <div class="input-container">
+    <form [formGroup]="form">
+      <mat-form-field appearance="fill" class="search-field">
+        <mat-label>Buscar</mat-label>
+        <input matInput formControlName="parametro" />
+      </mat-form-field>
+    </form>
+  </div>
+
+  <!-- Grid de tarjetas -->
+  <div class="review-grid">
+    <mat-card *ngFor="let review of paginatedData()" class="review-card">
+      <mat-card-header>
+        <mat-card-title class="review-title">📝 Reseña #{{ review.idReview }}</mat-card-title>
+        <mat-card-subtitle class="review-subtitle">
+          Categoría: {{ review.categoryReview }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="review-content">
+        <p><strong>Calificación:</strong> {{ review.qualificationReview }}/5</p>
+        <p><strong>Comentario:</strong> {{ review.textReview }}</p>
+        <p><strong>Usuario:</strong> {{ review.users.username }}</p>
+        <p><strong>Misión:</strong> {{ review.mission.nameMission }}</p>
+        <p><strong>Recompensa:</strong> {{ review.reward.nameReward }}</p>
+        <p><strong>Voluntariado:</strong> {{ review.volunteering.nameVolunteering }}</p>
+        <p><strong>Campaña:</strong> {{ review.campaign.nameCampaign }}</p>
+      </mat-card-content>
+
+      <mat-card-actions align="end" class="review-actions">
+        <button mat-icon-button color="primary" [routerLink]="['/reviews/ediciones', review.idReview]" aria-label="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="eliminar(review.idReview)" aria-label="Eliminar">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <!-- Paginador -->
+  <div class="paginator-container">
+    <mat-paginator
+      [pageSize]="2"
+      [pageSizeOptions]="[1, 2, 3]"
+      showFirstLastButtons
+      aria-label="Paginador de reseñas">
+    </mat-paginator>
+  </div>
+</div>

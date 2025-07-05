@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ChatbotService {
   private readonly apiUrl = 'https://openrouter.ai/api/v1/chat/completions';
-  private readonly apiKey = 'Bearer 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';
+  private readonly apiKey = 'Bearer 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';
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +23,7 @@ export class ChatbotService {
       messages: [
         {
           role: 'system',
-          content: 'Eres un experto en el medio ambiente de precisión. Responde de forma clara y concisa.'
+          content: 'Eres un experto en el medio ambiente. Responde de forma clara y concisa.'
         },
         { 
           role: 'user',  // ¡Este es el mensaje que faltaba!
