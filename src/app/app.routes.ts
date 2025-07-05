@@ -32,6 +32,8 @@ import { ReporteHU57Component } from './components/reportes/reporte-hu57/reporte
 import { ReporteHU60Component } from './components/reportes/reporte-hu60/reporte-hu60.component';
 import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { LoginComponent } from './components/login/login.component';
+import { guardGuard } from './guard/guard.guard';
 
 
 export const routes: Routes = [
