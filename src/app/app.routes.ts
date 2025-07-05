@@ -233,6 +233,8 @@ export const routes: Routes = [
         component: InsertarvolunteeringComponent,
       },
     ],
+  },
+    {
     path: 'reportes',
     component: ReportesComponent,
     children: [
