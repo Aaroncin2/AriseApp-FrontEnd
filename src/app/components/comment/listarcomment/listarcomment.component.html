@@ -1,0 +1,77 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%;">
+    <h1>Lista de Comentarios</h1>
+  </div>
+
+  <div class="input-container">
+    <form [formGroup]="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Buscar</mat-label>
+        <input matInput formControlName="parametro" />
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div style="text-align: center; margin: 5%;">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+      <!-- ID -->
+      <ng-container matColumnDef="idComment">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.idComment }}</td>
+      </ng-container>
+
+      <!-- Categoría -->
+      <ng-container matColumnDef="categoryComment">
+        <th mat-header-cell *matHeaderCellDef>Categoría</th>
+        <td mat-cell *matCellDef="let element">{{ element.categoryComment }}</td>
+      </ng-container>
+
+      <!-- Descripción -->
+      <ng-container matColumnDef="descriptionComment">
+        <th mat-header-cell *matHeaderCellDef>Descripción</th>
+        <td mat-cell *matCellDef="let element">{{ element.descriptionComment }}</td>
+      </ng-container>
+
+      <!-- Fecha -->
+      <ng-container matColumnDef="dateComment">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let element">{{ element.dateComment | date: 'shortDate' }}</td>
+      </ng-container>
+
+      <!-- Actualizar -->
+      <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button [routerLink]="['/comments/ediciones', element.idComment]">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Eliminar -->
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button (click)="eliminar(element.idComment)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Filas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <div class="paginator-container">
+      <mat-paginator
+        [pageSize]="8"
+        [pageSizeOptions]="[4, 8, 10]"
+        showFirstLastButtons
+        aria-label="Paginador de comentarios">
+      </mat-paginator>
+    </div>
+  </div>
+</div>
+
