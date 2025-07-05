@@ -195,42 +195,69 @@ export const routes: Routes = [
   {
     path: 'campaign',
     component: CampaignComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']},
     children: [
       {
         path: 'nuevo',
         component: InsertarcampaignComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']},
+
       },
       {
         path: 'ediciones/:id',
         component: InsertarcampaignComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']},
       },
     ],
   },
   {
     path: 'comments',
     component: CommentComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']},
     children: [
       {
         path: 'nuevo',
         component: InsertarcommentComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']}
       },
       {
         path: 'ediciones/:id',
         component: InsertarcommentComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']}
       },
     ],
   },
   {
     path: 'volunteering',
     component: VolunteeringComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']},
     children: [
       {
         path: 'nuevo',
         component: InsertarvolunteeringComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
       {
         path: 'ediciones/:id',
         component: InsertarvolunteeringComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
+      },
+    ],
+  },
+  {
+    path: 'reviews',
+    component: VolunteeringComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']},
+    children: [
+      {
+        path: 'nuevo',
+        component: InsertarvolunteeringComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
+      },
+      {
+        path: 'ediciones/:id',
+        component: InsertarvolunteeringComponent,
+        canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
     ],
   },
