@@ -1,70 +1,74 @@
-<div class="container">
-  <div style="text-align: center;margin: 5%;">
-    <h1>Lista de Campaña</h1>
-  </div>
- 
+<div class="page-container">
+  <h1 class="title">Lista de Campaña</h1>
+
   <div class="input-container">
-  <form [formGroup]="form">
-    <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput formControlName="parametro" />
-    </mat-form-field>
-  </form>
-    </div>
+    <form [formGroup]="form">
+      <mat-form-field appearance="fill" class="search-field">
+        <mat-label>Input</mat-label>
+        <input matInput formControlName="parametro" />
+      </mat-form-field>
+    </form>
+  </div>
 
-  <div style="text-align: center;margin: 5%;">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <!-- Position Column -->
-    <ng-container matColumnDef="idCampaign">
-      <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let element">{{ element.idCampaign }}</td>
-    </ng-container>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="user-table mat-elevation-z8">
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="nameCampaign">
-      <th mat-header-cell *matHeaderCellDef>Nombre de Campaña</th>
-      <td mat-cell *matCellDef="let element">{{ element.nameCampaign }}</td>
-    </ng-container>
-    <!-- Description Column -->
-    <ng-container matColumnDef="descriptionCampaign">
-      <th mat-header-cell *matHeaderCellDef>Descripcion</th>
-      <td mat-cell *matCellDef="let element">{{ element.descriptionCampaign }}</td>
-    </ng-container>
-     <ng-container matColumnDef="dateCampaign">
-      <th mat-header-cell *matHeaderCellDef>Fecha</th>
-      <td mat-cell *matCellDef="let element">{{ element.dateCampaign }}</td>
-    </ng-container>
-    
-    <ng-container matColumnDef="update">
-      <th mat-header-cell *matHeaderCellDef>Actualizar</th>
-      <td mat-cell *matCellDef="let element">
-        <button matButton [routerLink]="['ediciones', element.idCampaign]">
-          <mat-icon>edit</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-      <td mat-cell *matCellDef="let element">
-        <button matButton 
-                (click)="eliminar(element.idCampaign)"
-                >
-                <mat-icon>delete</mat-icon>
-              </button>
-      </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
+      <!-- ID Column -->
+      <ng-container matColumnDef="idCampaign">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">ID</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.idCampaign }}</td>
+      </ng-container>
+
+      <!-- Nombre Column -->
+      <ng-container matColumnDef="nameCampaign">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Nombre de Campaña</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.nameCampaign }}</td>
+      </ng-container>
+
+      <!-- Descripción Column -->
+      <ng-container matColumnDef="descriptionCampaign">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Descripción</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.descriptionCampaign }}</td>
+      </ng-container>
+
+      <!-- Fecha Column -->
+      <ng-container matColumnDef="dateCampaign">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Fecha</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">{{ element.dateCampaign }}</td>
+      </ng-container>
+
+      <!-- Actualizar -->
+      <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Actualizar</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">
+          <button mat-icon-button [routerLink]="['ediciones', element.idCampaign]">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Eliminar -->
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef class="header-cell">Eliminar</th>
+        <td mat-cell *matCellDef="let element" class="body-cell">
+          <button mat-icon-button (click)="eliminar(element.idCampaign)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Filas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 
   <div class="paginator-container">
-             <mat-paginator
-            [pageSize]="8"
-            [pageSizeOptions]="[4, 8, 10]"
-            [length]="100"
-            aria-label="Select page">
-          </mat-paginator>
-    </div>
+    <mat-paginator
+      [pageSize]="8"
+      [pageSizeOptions]="[4, 8, 10]"
+      [length]="100"
+      aria-label="Select page">
+    </mat-paginator>
+  </div>
 </div>
-
-

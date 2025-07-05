@@ -9,7 +9,6 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormGroup, ReactiveFormsModule, FormBuilder } from '@angular/forms';     
-import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-listarcomments',

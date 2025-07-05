@@ -1,4 +1,3 @@
-/* Mismo CSS que Users */
 .page-container {
   display: flex;
   flex-direction: column;
@@ -30,7 +29,7 @@
   overflow-x: auto;
 }
 
-.donation-table {
+.user-table {
   width: 100%;
   border-radius: 12px;
   overflow: hidden;

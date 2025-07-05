@@ -48,7 +48,7 @@ export const routes: Routes = [
   },
   {
     path: 'chatbot',
-    component:ChatbotComponent
+    component: ChatbotComponent,
   },
   {
     path: 'inicio',
@@ -248,11 +248,7 @@ export const routes: Routes = [
       },
       {
         path: 'hu56',
-        component: ReporteHU56Component, 
-      },
-      {
-        path: 'hu57',
-        component: ReporteHU57Component, 
+        component: ReporteHU56Component,
       },
       {
         path: 'hu58',
@@ -265,7 +261,7 @@ export const routes: Routes = [
       {
         path: 'hu60',
         component: ReporteHU60Component,
-      }
+      },
     ],
   },
 ];
