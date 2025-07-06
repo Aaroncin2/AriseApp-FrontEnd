@@ -1,0 +1,22 @@
+<div class="card-container">
+  <div class="titulo-reporte">
+    <h1>Cantidad Comentarios por Usuario</h1>
+  </div>
+
+  <div class="chart-wrapper" *ngIf="hasData">
+    <canvas
+      baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [type]="barChartType"
+    >
+    </canvas>
+  </div>
+
+  <div class="no-data" *ngIf="!hasData">
+    <mat-icon class="no-data-icon">info_outline</mat-icon>
+    <p class="no-data-message">No hay datos disponibles para mostrar.</p>
+  </div>
+</div>

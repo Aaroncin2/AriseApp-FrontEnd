@@ -34,9 +34,10 @@ import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { LoginComponent } from './components/login/login.component';
 import { guardGuard } from './guard/guard.guard';
-import { Review } from './models/review';
 import { ReviewComponent } from './components/review/review.component';
 import { InsertreviewComponent } from './components/review/insertreview/insertreview.component';
+import { ReporteHu61Component } from './components/reportes/reporte-hu61/reporte-hu61.component';
+import { ReporteHu62Component } from './components/reportes/reporte-hu62/reporte-hu62.component';
 
 
 export const routes: Routes = [
@@ -291,6 +292,14 @@ export const routes: Routes = [
       {
         path: 'hu60',
         component: ReporteHU60Component,
+      },
+      {
+        path: 'hu61',
+        component: ReporteHu61Component,
+      },
+      {
+        path: 'hu62',
+        component: ReporteHu62Component,
       },
     ],
   },

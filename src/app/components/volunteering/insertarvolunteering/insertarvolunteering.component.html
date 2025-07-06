@@ -1,78 +1,85 @@
-<div class="container">
-  <h2 class="titulo">Registrar Voluntariado</h2>
-  <form [formGroup]="form" (ngSubmit)="aceptar()">
-    <div class="form-group">
-      <mat-form-field appearance="fill">
+<div class="page-container">
+  <h1 class="title">Registrar Voluntariado</h1>
+
+  <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="aceptar()">
+
+      <mat-form-field appearance="outline" class="form-field">
         <mat-label>Nombre</mat-label>
-        <input matInput formControlName="nameVolunteering" required />
+        <input matInput formControlName="nameVolunteering" />
+        <mat-error *ngIf="form.get('nameVolunteering')?.hasError('required')">
+          El nombre es obligatorio.
+        </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline" class="form-field">
         <mat-label>Actividad</mat-label>
-        <input matInput formControlName="activityVolunteering" required />
+        <input matInput formControlName="activityVolunteering" />
+        <mat-error *ngIf="form.get('activityVolunteering')?.hasError('required')">
+          La actividad es obligatoria.
+        </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline" class="form-field">
         <mat-label>Área</mat-label>
-        <input matInput formControlName="areaVolunteering" required />
+        <input matInput formControlName="areaVolunteering" />
+        <mat-error *ngIf="form.get('areaVolunteering')?.hasError('required')">
+          El área es obligatoria.
+        </mat-error>
       </mat-form-field>
 
+      <div class="form-field">
+        <label style="font-weight: 500; color: #004d1a;">Estado</label>
+        <mat-radio-group formControlName="attendanceVolunteering" style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+          <mat-radio-button [value]="true">Activo</mat-radio-button>
+          <mat-radio-button [value]="false">Inactivo</mat-radio-button>
+        </mat-radio-group>
+        <mat-error *ngIf="form.get('attendanceVolunteering')?.hasError('required')">
+          El estado es obligatorio.
+        </mat-error>
+      </div>
 
-      <label>Estado</label>
-      <mat-radio-group formControlName="attendanceVolunteering">
-        <mat-radio-button [value]="true">Activo</mat-radio-button>
-        <mat-radio-button [value]="false">Inactivo</mat-radio-button>
-      </mat-radio-group>
-      <mat-error *ngIf="form.get('attendanceVolunteering')?.hasError('required')">
-        El estado es obligatorio!!
-      </mat-error>
-    </div>
-    <br />
-    <!-- Select de Campaña -->
-    <mat-form-field appearance="fill">
-      <mat-label>Campaña</mat-label>
-      <mat-select formControlName="idCampaign" required>
-        <mat-option *ngFor="let campaign of ListarCampaign" [value]="campaign.idCampaign">
-          {{ campaign.nameCampaign }}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="form.get('idCampaign')?.hasError('required')">
-        La campaña es obligatoria!!
-      </mat-error>
-    </mat-form-field>
-     <br />
-    <!-- Select de Donación -->
-    <mat-form-field appearance="fill">
-      <mat-label>Donación</mat-label>
-      <mat-select formControlName="idDonation" required>
-        <mat-option *ngFor="let donation of ListarDonation" [value]="donation.idDonation">
-          {{ donation.nameDonation }}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="form.get('idDonation')?.hasError('required')">
-        La donación es obligatoria!!
-      </mat-error>
-    </mat-form-field>
-    <br />
-    <!-- Select de Rol -->
-    <mat-form-field appearance="fill">
-      <mat-label>Rol</mat-label>
-      <mat-select formControlName="idRol" required>
-        <mat-option *ngFor="let role of ListarRole" [value]="role.idRol">
-          {{ role.rol }}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="form.get('idRol')?.hasError('required')">
-        El rol es obligatorio!!
-      </mat-error>
-    </mat-form-field>
-    <br />
-    <button mat-raised-button color="primary" type="submit">
-     Registrar 
-    </button>
-    <br />
-    <button mat-button color="elevated" type="button" (click)="cancelar()">
-      Cancelar
-    </button>
-  </form>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Campaña</mat-label>
+        <mat-select formControlName="idCampaign">
+          <mat-option *ngFor="let campaign of ListarCampaign" [value]="campaign.idCampaign">
+            {{ campaign.nameCampaign }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('idCampaign')?.hasError('required')">
+          La campaña es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Donación</mat-label>
+        <mat-select formControlName="idDonation">
+          <mat-option *ngFor="let donation of ListarDonation" [value]="donation.idDonation">
+            {{ donation.nameDonation }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('idDonation')?.hasError('required')">
+          La donación es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Rol</mat-label>
+        <mat-select formControlName="idRol">
+          <mat-option *ngFor="let role of ListarRole" [value]="role.idRol">
+            {{ role.rol }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('idRol')?.hasError('required')">
+          El rol es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-group">
+        <button class="soft-btn green" type="submit">Registrar</button>
+        <button class="soft-btn gray" type="button" (click)="cancelar()">Cancelar</button>
+      </div>
+
+    </form>
+  </div>
 </div>
