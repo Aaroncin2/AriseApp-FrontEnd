@@ -36,8 +36,7 @@ import { LoginComponent } from './components/login/login.component';
 import { guardGuard } from './guard/guard.guard';
 import { ReviewComponent } from './components/review/review.component';
 import { InsertreviewComponent } from './components/review/insertreview/insertreview.component';
-import { ReporteHU59Component } from './components/reportes/reporte-hu59/reporte-hu59.component';
-import { ReporteHU63Component } from './components/reportes/reporte-hu63/reporte-hu63.component';
+
 
 
 export const routes: Routes = [
