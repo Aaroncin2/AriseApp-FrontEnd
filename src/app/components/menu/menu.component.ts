@@ -26,11 +26,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 export class MenuComponent {
 role: string = '';
   constructor(private loginService: LoginService) {}
-  cerrar() {
-    
-    sessionStorage.clear();
-  }
-
+  logout() {
+  sessionStorage.removeItem('token');
+  location.href = '/login'; // Fuerza recarga total
+}
+  
   verificar() {
     this.role = this.loginService.showRole();
     return this.loginService.verificar();

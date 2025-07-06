@@ -15,14 +15,12 @@ import { MissionrewardComponent } from './components/missionreward/missionreward
 import { InsertarmissionrewardComponent } from './components/missionreward/insertarmissionreward/insertarmissionreward.component';
 import { TypedonationsComponent } from './components/typedonations/typedonations.component';
 import { InsertartypedonationsComponent } from './components/typedonations/insertartypedonations/insertartypedonations.component';
-
 import { CampaignComponent } from './components/campaign/campaign.component';
 import { InsertarcampaignComponent } from './components/campaign/insertarcampaign/insertarcampaign.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { InsertarcommentComponent } from './components/comment/insertarcomment/insertarcomment.component';
 import { VolunteeringComponent } from './components/volunteering/volunteering.component';
 import { InsertarvolunteeringComponent } from './components/volunteering/insertarvolunteering/insertarvolunteering.component';
-
 import { ReportesComponent } from './components/reportes/reportes.component';
 import { ReporteHU54Component } from './components/reportes/reporte-hu54/reporte-hu54.component';
 import { ReporteHU55Component } from './components/reportes/reporte-hu55/reporte-hu55.component';
