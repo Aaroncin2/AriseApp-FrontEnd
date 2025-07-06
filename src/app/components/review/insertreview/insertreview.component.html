@@ -1,91 +1,108 @@
 <div class="page-container">
   <h1 class="title">Registro de Reseñas</h1>
-<form [formGroup]="form" (submit)="aceptar()" class="form-container">
-  <mat-form-field appearance="outline" *ngIf="edicion" class="form-field">
-    <mat-label>ID</mat-label>
-    <input matInput formControlName="codigo" />
-    <mat-error *ngIf="form.get('codigo')?.hasError('required')">
-      El código es obligatorio!!
-    </mat-error>
-  </mat-form-field>
+  <form [formGroup]="form" (submit)="aceptar()" class="form-container">
+    <mat-form-field appearance="outline" *ngIf="edicion" class="form-field">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="codigo" />
+      <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+        El código es obligatorio!!
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Categoría de Reseña </mat-label>
-    <mat-select formControlName="categoryReview">
-      @for (api of categoria; track api) {
-      <mat-option [value]="api.value">{{ api.viewValue }}</mat-option>
-      }
-    </mat-select>
-    <mat-error *ngIf="form.get('categoryReview')?.hasError('required')">
-      La categoría es obligatoria!!
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Seleccione una Calificación</mat-label>
-    <mat-select formControlName="qualificationReview">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error *ngIf="form.get('qualificationReview')?.hasError('required')">
-      La calificación es obligatoria!!
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Comentario</mat-label>
-    <textarea matInput formControlName="textReview" rows="4"></textarea>
-    <mat-error *ngIf="form.get('textReview')?.hasError('required')">
-      El comentario es obligatorio!!
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field  appearance="outline" class="form-field">
-    <mat-label>Seleccione Usuario</mat-label>
-    <mat-select formControlName="users">
-      @for (api of listaUser; track api) {
-      <mat-option [value]="api.idUser">{{ api.username }}</mat-option>
-      }
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Seleccione Misión</mat-label>
-    <mat-select formControlName="missions">
-      @for (api of listaMission; track api) {
-      <mat-option [value]="api.idMission">{{ api.nameMission }}</mat-option>
-      }
-    </mat-select>
-  </mat-form-field>
     <mat-form-field appearance="outline" class="form-field">
-        <mat-label>Seleccione Recompensa</mat-label>
-        <mat-select formControlName="rewards">
+      <mat-label>Categoría de Reseña </mat-label>
+      <mat-select formControlName="categoryReview">
+        @for (api of categoria; track api) {
+        <mat-option [value]="api.value">{{ api.viewValue }}</mat-option>
+        }
+      </mat-select>
+      <mat-error *ngIf="form.get('categoryReview')?.hasError('required')">
+        La categoría es obligatoria!!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Seleccione una Calificación</mat-label>
+      <mat-select formControlName="qualificationReview">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('qualificationReview')?.hasError('required')">
+        La calificación es obligatoria!!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Comentario</mat-label>
+      <textarea matInput formControlName="textReview" rows="4"></textarea>
+      <mat-error *ngIf="form.get('textReview')?.hasError('required')">
+        El comentario es obligatorio!!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Seleccione Usuario</mat-label>
+      <mat-select formControlName="users">
+        @for (api of listaUser; track api) {
+        <mat-option [value]="api.idUser">{{ api.username }}</mat-option>
+        }
+      </mat-select>
+      <mat-error *ngIf="form.get('users')?.hasError('required')">
+        El Usuario es obligatorio!!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Seleccione Misión</mat-label>
+      <mat-select formControlName="missions">
+        @for (api of listaMission; track api) {
+        <mat-option [value]="api.idMission">{{ api.nameMission }}</mat-option>
+        }
+      </mat-select>
+      <mat-error *ngIf="form.get('missions')?.hasError('required')">
+        La mision es obligatoria!!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Seleccione Recompensa</mat-label>
+      <mat-select formControlName="rewards">
         @for (api of listaReward; track api) {
         <mat-option [value]="api.idReward">{{ api.nameReward }}</mat-option>
         }
-        </mat-select>
+      </mat-select>
+      <mat-error *ngIf="form.get('rewards')?.hasError('required')">
+        La Recompensa es obligatoria!!
+      </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" class="form-field">
-        <mat-label>Seleccione Voluntariado</mat-label>
-        <mat-select formControlName="volunteerings">
+      <mat-label>Seleccione Voluntariado</mat-label>
+      <mat-select formControlName="volunteerings">
         @for (api of listaVolunteering; track api) {
-        <mat-option [value]="api.idVolunteering">{{ api.nameVolunteering }}</mat-option>
+        <mat-option [value]="api.idVolunteering">{{
+          api.nameVolunteering
+        }}</mat-option>
         }
-        </mat-select>
+      </mat-select>
+      <mat-error *ngIf="form.get('volunteerings')?.hasError('required')">
+        El voluntariado es obligatorio!!
+      </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" class="form-field">
-        <mat-label>Seleccione Campaña</mat-label>
-        <mat-select formControlName="campaigns">
+      <mat-label>Seleccione Campaña</mat-label>
+      <mat-select formControlName="campaigns">
         @for (api of listaCampaign; track api) {
         <mat-option [value]="api.idCampaign">{{ api.nameCampaign }}</mat-option>
         }
-        </mat-select>
+      </mat-select>
+      <mat-error *ngIf="form.get('campaigns')?.hasError('required')">
+        La Campaña es obligatoria!!
+      </mat-error>
     </mat-form-field>
-  <!-- Botones -->
-  <div class="button-group">
-    <button type="submit" class="soft-btn green">Registrar</button>
-    <button type="button" class="soft-btn gray" (click)="cancelar()">
-      Cancelar
-    </button>
-  </div>
-</form>
+    <!-- Botones -->
+    <div class="button-group">
+      <button type="submit" class="soft-btn green">Registrar</button>
+      <button type="button" class="soft-btn gray" (click)="cancelar()">
+        Cancelar
+      </button>
+    </div>
+  </form>
 </div>
