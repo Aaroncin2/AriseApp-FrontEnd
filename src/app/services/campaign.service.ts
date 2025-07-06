@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Campaign } from '../models/campaign';
 import { enviroment } from '../../environments/environment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { HU56DTO } from '../models/HU56DTO';
 const base_url = enviroment.base;
 
 
@@ -35,5 +36,8 @@ export class CampaignService {
   }
   deleteD(id: number) {
     return this.http.delete(`${this.url}/${id}`);
+  }
+  getHU56DTO(): Observable<HU56DTO[]> {
+    return this.http.get<HU56DTO[]>(`${this.url}/HU56`);
   }
 }

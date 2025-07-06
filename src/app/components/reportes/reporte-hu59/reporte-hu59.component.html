@@ -1,0 +1,45 @@
+<div class="table-container">
+  <h2 class="titulo-reporte">Reporte de Participación en Voluntariados</h2>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 tabla-voluntariado">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id_volunteering">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id_volunteering}} </td>
+    </ng-container>
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="name_volunteering">
+      <th mat-header-cell *matHeaderCellDef> Voluntariado </th>
+      <td mat-cell *matCellDef="let element"> {{element.name_volunteering}} </td>
+    </ng-container>
+
+    <!-- Actividad Column -->
+    <ng-container matColumnDef="activity_volunteering">
+      <th mat-header-cell *matHeaderCellDef> Actividad </th>
+      <td mat-cell *matCellDef="let element"> {{element.activity_volunteering}} </td>
+    </ng-container>
+
+    <!-- Usuario Column -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef> Usuario </th>
+      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+
+    <!-- Asistencia Column -->
+    <ng-container matColumnDef="attendance_volunteering">
+      <th mat-header-cell *matHeaderCellDef> Asistencia </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.attendance_volunteering ? 'Sí' : 'No' }}
+      </td>
+    </ng-container>
+
+    <!-- Header & Row Definitions -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

@@ -31,6 +31,8 @@ dataSource: MatTableDataSource<HU57DTO> = new MatTableDataSource<HU57DTO>();
   ngOnInit(): void {
     this.uS.getHU57DTO().subscribe((data: HU57DTO[]) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+
     });
   }
 }

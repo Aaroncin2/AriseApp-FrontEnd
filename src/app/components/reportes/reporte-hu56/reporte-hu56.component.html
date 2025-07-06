@@ -1,1 +1,19 @@
+<div class="card-container">
+  <h2 class="titulo-reporte">Reporte de Usuarios y sus Publicaciones en Foros</h2>
 
+  <div class="card" *ngFor="let item of dataSource.data">
+    <div class="card-header">
+      <h3 class="card-username">Campaña #{{ item.id_campaign }}</h3>
+      <h4 class="card-title">{{ item.campaign_description }}</h4>
+    </div>
+
+    <div class="card-body">
+      <p class="card-description"><strong>Nombre de Campaña:</strong> {{ item.campaign_name }}</p>
+      <p class="card-description"><strong>Rol:</strong> {{ item.role }}</p>
+      <p class="card-description"><strong>Usuario:</strong> {{ item.username }}</p>
+    </div>
+  </div>
+
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>
