@@ -1,22 +1,60 @@
-.custom-toolbar {
-	background-color: #005a1cd0;
-   }
-   
-   
-   
-   .btn-rojo {   
-	background-color: #005a1cd0;
-    border-radius: 4px;   
-    margin: 4px;   
-    border: none;
-      }
-   
-   
-   .btn-rojo mat-icon {   
-    color: white;   
-   }    
-   
-   .custom-toolbar button,   
-   .custom-toolbar mat-icon {   
-    color: white;   
-   }
+.dashboard-container {
+  height: 100vh;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 240px;
+  background-color: #005a1cd0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-text {
+  font-weight: 600;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+}
+
+.dashboard-button {
+  color: white !important;
+  justify-content: flex-start;
+  padding: 10px 16px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s;
+  text-align: left;
+  font-weight: 500;
+}
+
+.dashboard-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-button mat-icon {
+  margin-right: 8px;
+}
+
+.spacer {
+  flex: 1;
+}

@@ -34,6 +34,9 @@ import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { LoginComponent } from './components/login/login.component';
 import { guardGuard } from './guard/guard.guard';
+import { Review } from './models/review';
+import { ReviewComponent } from './components/review/review.component';
+import { InsertreviewComponent } from './components/review/insertreview/insertreview.component';
 
 
 export const routes: Routes = [
@@ -230,7 +233,7 @@ export const routes: Routes = [
   {
     path: 'volunteering',
     component: VolunteeringComponent,
-    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']},
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']},
     children: [
       {
         path: 'nuevo',
@@ -246,17 +249,17 @@ export const routes: Routes = [
   },
   {
     path: 'reviews',
-    component: VolunteeringComponent,
-    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']},
+    component: ReviewComponent,
+    canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA','VOLUNTARIO']},
     children: [
       {
         path: 'nuevo',
-        component: InsertarvolunteeringComponent,
+        component: InsertreviewComponent,
         canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
       {
         path: 'ediciones/:id',
-        component: InsertarvolunteeringComponent,
+        component: InsertreviewComponent,
         canActivate: [guardGuard],data: { rol: ['ADMIN','ECOLOGISTA']}
       },
     ],
