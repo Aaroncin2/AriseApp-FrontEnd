@@ -1,0 +1,35 @@
+.table-container {
+  max-width: 95%;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #f8fff8;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 90, 28, 0.1);
+}
+
+.titulo-reporte {
+  text-align: center;
+  color: #005a1c;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mat-header-cell {
+  background-color: #d7f0db;
+  color: #005a1c;
+  font-weight: bold;
+}
+
+.mat-cell, .mat-header-cell {
+  padding: 12px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+tr.mat-row:hover {
+  background-color: #edf9f0;
+}
