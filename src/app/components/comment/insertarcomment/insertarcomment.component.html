@@ -1,72 +1,72 @@
-<div class="container">
-  <h2>{{ edicion ? 'Editar Comentario' : 'Nuevo Comentario' }}</h2>
-  <form [formGroup]="form" (ngSubmit)="aceptar()">
-    <mat-form-field *ngIf="edicion">
-      <mat-label>Código</mat-label>
-      <input matInput formControlName="idComment"/>
-      <mat-error *ngIf="form.get('idComment')?.hasError('required')">
-          El código es obligatorio!!
-        </mat-error>
-    </mat-form-field>
-     <br />
+<div class="page-container">
+  <h1 class="title">{{ edicion ? 'Editar Comentario' : 'Nuevo Comentario' }}</h1>
 
-    <mat-form-field>
-      <mat-label>Categoría</mat-label>
-      <input matInput formControlName="categoryComment" />
-      <mat-error *ngIf="form.get('categoryComment')?.hasError('required')">
-          La categoria es obligatoria!!
+  <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="aceptar()">
+      
+      <mat-form-field appearance="outline" *ngIf="edicion" class="form-field">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="idComment" />
+        <mat-error *ngIf="form.get('idComment')?.hasError('required')">
+          El código es obligatorio.
         </mat-error>
-    </mat-form-field>
-     <br />
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Descripción</mat-label>
-      <input matInput formControlName="descriptionComment" />
-      <mat-error *ngIf="form.get('descriptionComment')?.hasError('required')">
-          La Descripcion es obligatoria!!
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Categoría</mat-label>
+        <input matInput formControlName="categoryComment" />
+        <mat-error *ngIf="form.get('categoryComment')?.hasError('required')">
+          La categoría es obligatoria.
         </mat-error>
-    </mat-form-field>
-     <br />
-    <mat-form-field>
-      <mat-label>Fecha</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="dateComment" />
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-      <mat-error *ngIf="form.get('dateComment')?.hasError('required')">
-          La fecha es obligatoria!!
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="descriptionComment" />
+        <mat-error *ngIf="form.get('descriptionComment')?.hasError('required')">
+          La descripción es obligatoria.
         </mat-error>
-    </mat-form-field>
-     <br />
-     <mat-form-field>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dateComment" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('dateComment')?.hasError('required')">
+          La fecha es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
         <mat-label>Seleccione Usuario</mat-label>
         <mat-select formControlName="users">
           @for (api of listaUsuarios; track api) {
-          <mat-option [value]="api.idUser">{{ api.username }}</mat-option>
+            <mat-option [value]="api.idUser">{{ api.username }}</mat-option>
           }
         </mat-select>
         <mat-error *ngIf="form.get('users')?.hasError('required')">
-          El usuario es obligatorio!!
+          El usuario es obligatorio.
         </mat-error>
       </mat-form-field>
-      <br />
-      <mat-form-field>
-        <mat-label>Seleccione foro</mat-label>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Seleccione Foro</mat-label>
         <mat-select formControlName="forum">
           @for (api of listaForos; track api) {
-          <mat-option [value]="api.idForum">{{ api.nameForum }}</mat-option>
+            <mat-option [value]="api.idForum">{{ api.nameForum }}</mat-option>
           }
         </mat-select>
         <mat-error *ngIf="form.get('forum')?.hasError('required')">
-          El Foro es obligatorio!!
+          El foro es obligatorio.
         </mat-error>
       </mat-form-field>
-      <br />
-    <button mat-raised-button color="primary">Registrar</button>
-    <br />
-      <button mat-button color="elevated" type="button" (click)="cancelar()">
-        Cancelar
-    </button>
-  </form>
-</div>
 
+      <div class="button-group">
+        <button class="soft-btn green" type="submit">Registrar</button>
+        <button class="soft-btn gray" type="button" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

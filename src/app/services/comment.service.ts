@@ -2,7 +2,9 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Comment } from "../models/comment";
 import { enviroment } from "../../environments/environment";
-import { Subject } from "rxjs";
+import { Observable, Subject } from "rxjs";
+import { HU62DTO } from "../models/HU62DTO";
+import { HU61DTO } from "../models/HU61DTO";
 const base_url = enviroment.base;
 
 @Injectable({
@@ -40,5 +42,11 @@ export class CommentService {
 
   deleteD(id: number) {
     return this.http.delete(`${this.url}/${id}`);
+  }
+  getHU61DTO():Observable<HU61DTO[]>{
+    return this.http.get<HU61DTO[]>(`${this.url}/HU61`);
+  }
+  getHU62DTO(): Observable<HU62DTO[]>{
+    return this.http.get<HU62DTO[]>(`${this.url}/HU62`);
   }
 }

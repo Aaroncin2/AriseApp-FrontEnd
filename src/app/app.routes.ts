@@ -36,8 +36,11 @@ import { LoginComponent } from './components/login/login.component';
 import { guardGuard } from './guard/guard.guard';
 import { ReviewComponent } from './components/review/review.component';
 import { InsertreviewComponent } from './components/review/insertreview/insertreview.component';
+import { ReporteHu61Component } from './components/reportes/reporte-hu61/reporte-hu61.component';
+import { ReporteHu62Component } from './components/reportes/reporte-hu62/reporte-hu62.component';
 import { ReporteHU59Component } from './components/reportes/reporte-hu59/reporte-hu59.component';
 import { ReporteHU63Component } from './components/reportes/reporte-hu63/reporte-hu63.component';
+
 
 
 export const routes: Routes = [
@@ -282,16 +285,32 @@ export const routes: Routes = [
         component: ReporteHU56Component,
       },
       {
-        path: 'hu58',
-        component: ReporteHU58Component,
-      },
-      {
         path: 'hu57',
         component: ReporteHU57Component,
       },
       {
+        path: 'hu58',
+        component: ReporteHU58Component,
+      },
+      {
+        path: 'hu59',
+        component: ReporteHU59Component,
+      },
+      {
         path: 'hu60',
         component: ReporteHU60Component,
+      },
+      {
+        path: 'hu61',
+        component: ReporteHu61Component,
+      },
+      {
+        path: 'hu62',
+        component: ReporteHu62Component,
+      },
+      {
+        path: 'hu63',
+        component: ReporteHU63Component,
       },
     ],
   },

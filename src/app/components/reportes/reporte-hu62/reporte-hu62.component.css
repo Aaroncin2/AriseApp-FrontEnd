@@ -1,0 +1,52 @@
+.card-container {
+  margin: 40px auto;
+  max-width: 1000px;
+  padding: 24px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 77, 26, 0.1);
+  border-left: 6px solid #004d1a;
+}
+
+.titulo-reporte h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #004d1a;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.chart-wrapper {
+  text-align: center;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.chart-wrapper:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.no-data {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff3e0;
+  border: 1px solid #ffcc80;
+  border-radius: 10px;
+  color: #bf360c;
+}
+
+.no-data-icon {
+  font-size: 48px;
+  color: #ff6f00;
+}
+
+.no-data-message {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #444;
+}
