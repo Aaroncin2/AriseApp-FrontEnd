@@ -12,6 +12,10 @@ export class LoginService {
   login(request: JwtRequest) {
     return this.http.post('http://localhost:8083/login', request);
   }
+  logout() {
+  sessionStorage.removeItem('token');
+  location.href = '/login'; // Fuerza recarga total
+}
   verificar() {
     let token = sessionStorage.getItem('token');
     return token != null;

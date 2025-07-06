@@ -1,13 +1,9 @@
-<div class="title-container">
-  <div style="text-align: center" class="title">
-    <h1>Cantidad recomenpensas por mision</h1>
+<div class="rewards-section">
+  <div class="section-title">
+    <h1>Cantidad de Recompensas por Misión</h1>
   </div>
 
-  <div
-    style="text-align: center"
-    class="chart-container"
-    *ngIf="hasData == true"
-  >
+  <div class="chart-wrapper" *ngIf="hasData == true">
     <canvas
       baseChart
       [datasets]="barChartData"
@@ -15,9 +11,7 @@
       [options]="barChartOptions"
       [legend]="barChartLegend"
       [type]="barChartType"
-    >
-      <!-- Cambiado de 'chartType' a 'type' -->
-    </canvas>
+    ></canvas>
   </div>
 
   <div class="no-data" *ngIf="hasData == false">
@@ -25,4 +19,3 @@
     <p class="no-data-message">No hay datos disponibles para mostrar.</p>
   </div>
 </div>
-
