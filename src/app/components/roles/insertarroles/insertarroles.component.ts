@@ -39,7 +39,7 @@ export class InsertarrolesComponent implements OnInit {
 
   roles: { value: string; viewValue: string }[] = [
     { value: 'ADMIN', viewValue: 'Administrador' },
-    { value: 'VOLUNTARIADO', viewValue: 'Voluntario' },
+    { value: 'VOLUNTARIO', viewValue: 'Voluntario' },
     { value: 'ECOLOGISTA', viewValue: 'Ecologista' },
   ];
 
