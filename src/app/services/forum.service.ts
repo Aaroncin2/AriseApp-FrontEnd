@@ -4,6 +4,7 @@ import { enviroment } from '../../environments/environment';
 import { Forum } from '../models/forum';
 import { Observable, Subject } from 'rxjs';
 import { HU60DTO } from '../models/HU60DTO';
+import { HU63DTO } from '../models/HU63DTO';
 const base_url = enviroment.base;
 @Injectable({
   providedIn: 'root',
@@ -36,5 +37,8 @@ export class ForumService {
   }
   getHU60DTO(): Observable<HU60DTO[]> {
     return this.http.get<HU60DTO[]>(`${this.url}/HU60`);
+  }
+  getHU63DTO(): Observable<HU63DTO[]> {
+    return this.http.get<HU63DTO[]>(`${this.url}/HU63`);
   }
 }
