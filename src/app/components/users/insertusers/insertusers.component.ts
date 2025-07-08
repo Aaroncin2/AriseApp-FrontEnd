@@ -53,7 +53,7 @@ export class InsertusersComponent implements OnInit {
     this.form = this.formBuilder.group({
       codigo: [''],
       username: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       enabled: ['', Validators.required],
     });
