@@ -27,8 +27,8 @@ export const appConfig: ApplicationConfig = {
       JwtModule.forRoot({
         config: {
           tokenGetter: tokenGetter,
-          allowedDomains: ['localhost:8083'],
-          disallowedRoutes: ['http://localhost:8083/login/forget'],
+          allowedDomains: ['localhost:8083', 'https://ariseapp2.onrender.com'],
+          disallowedRoutes: ['http://localhost:8083/login/forget', 'https://ariseapp2.onrender.com/login/forget'],
         },
       })
     )
